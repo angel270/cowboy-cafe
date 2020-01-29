@@ -22,6 +22,16 @@ namespace CowboyCafe.Data
             get { return 288; }
         }
 
+        private bool bun = true;
+        /// <summary>
+        /// If the customer does not want buns
+        /// </summary>
+        public bool Bun
+        {
+            get { return bun; }
+            set { bun = value; }
+        }
+
         private bool ketchup = true;
         /// <summary>
         /// If the customer does not want ketchup

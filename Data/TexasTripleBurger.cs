@@ -7,7 +7,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A description of a triple burger
     /// </summary>
-    public class TexasTriple
+    public class TexasTripleBurger
     {
         /// <summary>
         /// Price of a double burger
@@ -23,6 +23,16 @@ namespace CowboyCafe.Data
         public uint Calories
         {
             get { return 698; }
+        }
+
+        private bool bun = true;
+        /// <summary>
+        /// If the customer does not want buns
+        /// </summary>
+        public bool Bun
+        {
+            get { return bun; }
+            set { bun = value; }
         }
 
         private bool ketchup = true;

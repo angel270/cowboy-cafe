@@ -24,5 +24,13 @@ namespace CowboyCafe.Data
         {
             get { return 894; }
         }
+
+        public List<string> SpecialInstructions
+        {
+            get
+            {
+                return null;
+            }
+        }
     }
 }
