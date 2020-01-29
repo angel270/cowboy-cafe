@@ -134,12 +134,14 @@ namespace CowboyCafe.Data
             {
                 var instructions = new List<string>();
 
+                if (!bun)
+                    instructions.Add("hold bun");
                 if (!ketchup)
                     instructions.Add("hold ketchup");
                 if (!mustard)
                     instructions.Add("hold mustard");
                 if (!pickle)
-                    instructions.Add("hold pickle.");
+                    instructions.Add("hold pickle");
                 if (!cheese)
                     instructions.Add("hold cheese");
                 if (!tomato)

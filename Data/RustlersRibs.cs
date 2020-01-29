@@ -29,7 +29,9 @@ namespace CowboyCafe.Data
         {
             get
             {
-                return null;
+                var instructions = new List<string>();
+
+                return instructions;
             }
         }
     }

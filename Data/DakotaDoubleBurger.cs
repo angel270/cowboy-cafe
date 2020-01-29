@@ -116,10 +116,12 @@ namespace CowboyCafe.Data
 
                 if (!ketchup)
                     instructions.Add("hold ketchup");
+                if (!bun)
+                    instructions.Add("hold bun");
                 if (!mustard)
                     instructions.Add("hold mustard");
                 if (!pickle)
-                    instructions.Add("hold pickle.");
+                    instructions.Add("hold pickle");
                 if (!cheese)
                     instructions.Add("hold cheese");
                 if (!tomato)
