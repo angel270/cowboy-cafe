@@ -7,12 +7,42 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A description of a double burger
     /// </summary>
-    public class DakotaDoubleBurger
+    public class DakotaDoubleBurger : Entree
     {
+        /// <summary>
+        /// Special Instructions for the sandwich
+        /// </summary>
+        public override List<string> SpecialInstructions
+        {
+            get
+            {
+                var instructions = new List<string>();
+
+                if (!ketchup)
+                    instructions.Add("hold ketchup");
+                if (!bun)
+                    instructions.Add("hold bun");
+                if (!mustard)
+                    instructions.Add("hold mustard");
+                if (!pickle)
+                    instructions.Add("hold pickle");
+                if (!cheese)
+                    instructions.Add("hold cheese");
+                if (!tomato)
+                    instructions.Add("hold tomato");
+                if (!lettuce)
+                    instructions.Add("hold lettuce");
+                if (!mayo)
+                    instructions.Add("hold mayo");
+
+                return instructions;
+            }
+        }
+
         /// <summary>
         /// Price of a double burger
         /// </summary>
-        public double Price
+        public override double Price
         {
             get { return 5.2; }
         }
@@ -20,7 +50,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Calories in a double burger
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get { return 464; }
         }
@@ -103,36 +133,6 @@ namespace CowboyCafe.Data
         {
             get { return mayo; }
             set { mayo = value; }
-        }
-
-        /// <summary>
-        /// Special Instructions for the sandwich
-        /// </summary>
-        public List<string> SpecialInstructions
-        {
-            get
-            {
-                var instructions = new List<string>();
-
-                if (!ketchup)
-                    instructions.Add("hold ketchup");
-                if (!bun)
-                    instructions.Add("hold bun");
-                if (!mustard)
-                    instructions.Add("hold mustard");
-                if (!pickle)
-                    instructions.Add("hold pickle");
-                if (!cheese)
-                    instructions.Add("hold cheese");
-                if (!tomato)
-                    instructions.Add("hold tomato");
-                if (!lettuce)
-                    instructions.Add("hold lettuce");
-                if (!mayo)
-                    instructions.Add("hold mayo");
-
-                return instructions;
-            }
         }
     }
 }

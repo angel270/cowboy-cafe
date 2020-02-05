@@ -4,12 +4,36 @@ using System.Text;
 
 namespace CowboyCafe.Data
 {
-    public class TrailBurger
+    public class TrailBurger : Entree
     {
+        /// <summary>
+        /// Special Instructions for the sandwich
+        /// </summary>
+        public override List<string> SpecialInstructions
+        {
+            get
+            {
+                var instructions = new List<string>();
+
+                if (!bun)
+                    instructions.Add("hold bun");
+                if (!ketchup)
+                    instructions.Add("hold ketchup");
+                if (!mustard)
+                    instructions.Add("hold mustard");
+                if (!pickle)
+                    instructions.Add("hold pickle");
+                if (!cheese)
+                    instructions.Add("hold cheese");
+
+                return instructions;
+            }
+        }
+
         /// <summary>
         /// Price of a burger
         /// </summary>
-        public double Price
+        public override double Price
         {
             get { return 4.5; }
         }
@@ -17,7 +41,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Calories in a burger
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get { return 288; }
         }
@@ -70,30 +94,6 @@ namespace CowboyCafe.Data
         {
             get { return cheese; }
             set { cheese = value; }
-        }
-
-        /// <summary>
-        /// Special Instructions for the sandwich
-        /// </summary>
-        public List<string> SpecialInstructions
-        {
-            get
-            {
-                var instructions = new List<string>();
-
-                if (!bun)
-                    instructions.Add("hold bun");
-                if (!ketchup)
-                    instructions.Add("hold ketchup");
-                if (!mustard)
-                    instructions.Add("hold mustard");
-                if (!pickle)
-                    instructions.Add("hold pickle");
-                if (!cheese)
-                    instructions.Add("hold cheese");
-
-                return instructions;
-            }
         }
     }
 }

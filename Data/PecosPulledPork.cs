@@ -7,12 +7,30 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A description of the Peco's Pulled Pork entree
     /// </summary>
-    public class PecosPulledPork
+    public class PecosPulledPork : Entree
     {
+        /// <summary>
+        /// Special Instructions for the sandwich
+        /// </summary>
+        override public List<string> SpecialInstructions
+        {
+            get
+            {
+                var instructions = new List<string>();
+
+                if (!bread)
+                    instructions.Add("hold bread");
+                if (!pickle)
+                    instructions.Add("hold pickle");
+
+                return instructions;
+            }
+        }
+
         /// <summary>
         /// Price of a pulled pork sandwich
         /// </summary>
-        public double Price
+        public override double Price
         {
             get { return 5.88; }
         }
@@ -20,7 +38,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Calories in a pulled pork sandwich
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get { return 528; }
         }
@@ -44,24 +62,5 @@ namespace CowboyCafe.Data
             get { return pickle; }
             set { pickle = value; }
         }
-
-        /// <summary>
-        /// Special Instructions for the sandwich
-        /// </summary>
-        public List<string> SpecialInstructions
-        {
-            get
-            {
-                var instructions = new List<string>();
-
-                if (!bread)
-                    instructions.Add("hold bread");
-                if (!pickle)
-                    instructions.Add("hold pickle");
-
-                return instructions;
-            }
-        }
-
     }
 }

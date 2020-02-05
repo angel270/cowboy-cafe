@@ -7,12 +7,30 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Angry Chicken entree
     /// </summary>
-    public class AngryChicken
+    public class AngryChicken : Entree
     {
+        /// <summary>
+        /// Special Instructions for the sandwich
+        /// </summary>
+        public override List<string> SpecialInstructions
+        {
+            get
+            {
+                var instructions = new List<string>();
+
+                if (!bread)
+                    instructions.Add("hold bread");
+                if (!pickle)
+                    instructions.Add("hold pickle");
+
+                return instructions;
+            }
+        }
+
         /// <summary>
         /// The price of the chicken sandwich
         /// </summary>
-        public double Price
+        public override double Price
         {
             get { return 5.99; }
         }
@@ -20,7 +38,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Calories in the chicken sandwich
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get { return 190; }
         }
@@ -44,24 +62,5 @@ namespace CowboyCafe.Data
             get { return pickle; }
             set { pickle = value; }
         }
-
-        /// <summary>
-        /// Special Instructions for the sandwich
-        /// </summary>
-        public List<string> SpecialInstructions
-        {
-            get
-            {
-                var instructions = new List<string>();
-
-                if (!bread)
-                    instructions.Add("hold bread");
-                if (!pickle)
-                    instructions.Add("hold pickle");
-
-                return instructions;
-            }
-        }
     }
-
 }

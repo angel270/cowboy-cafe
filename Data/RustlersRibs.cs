@@ -7,25 +7,12 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Rustler's Ribs entree
     /// </summary>
-    public class RustlersRibs
+    public class RustlersRibs : Entree
     {
         /// <summary>
-        /// The price of Rustler's Ribs
+        /// Gets or sets if the entree has special instructions
         /// </summary>
-        public double Price
-        {
-            get { return 7.5; }
-        }
-
-        /// <summary>
-        /// The calories in the ribs
-        /// </summary>
-        public uint Calories
-        {
-            get { return 894; }
-        }
-
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
@@ -33,6 +20,22 @@ namespace CowboyCafe.Data
 
                 return instructions;
             }
+        }
+
+        /// <summary>
+        /// The price of Rustler's Ribs
+        /// </summary>
+        public override double Price
+        {
+            get { return 7.5; }
+        }
+
+        /// <summary>
+        /// The calories in the ribs
+        /// </summary>
+        public override uint Calories
+        {
+            get { return 894; }
         }
     }
 }
