@@ -12,7 +12,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{240C539A-4785-476F-8890-C2E8334BE965}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{F771D092-B5DF-4296-A65A-60B0A39D0DE3}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\..\..\..\Downloads\Cowboy Cafe.pdf = ..\..\..\..\..\..\..\Downloads\Cowboy Cafe.pdf
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
