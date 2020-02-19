@@ -90,5 +90,15 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(this.Size);
+            if (!Sweet)
+                sb.Append(" Iced");
+            sb.Append(" Texas Tea");
+            return sb.ToString();
+        }
     }
 }

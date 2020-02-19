@@ -160,5 +160,10 @@ namespace CowboyCafe.Data
             get { return egg; }
             set { egg = value; }
         }
+
+        public override string ToString()
+        {
+            return "Texas Triple Burger";
+        }
     }
 }

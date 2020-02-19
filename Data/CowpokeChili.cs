@@ -81,6 +81,10 @@ namespace CowboyCafe.Data
             get { return tortillaStrips; }
             set { tortillaStrips = value; }
         }
+        public override string ToString()
+        {
+            return "Cowpoke Chili";
+        }
     }
 }
 

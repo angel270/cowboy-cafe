@@ -47,5 +47,13 @@ namespace CowboyCafe.Data
                 }
             }
         }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(this.Size);
+            sb.Append(" Pan de Campo");
+            return sb.ToString();
+        }
     }
 }

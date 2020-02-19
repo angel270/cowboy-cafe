@@ -37,5 +37,10 @@ namespace CowboyCafe.Data
         {
             get { return 894; }
         }
+
+        public override string ToString()
+        {
+            return "Rustler's Ribs";
+        }
     }
 }

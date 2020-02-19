@@ -62,5 +62,10 @@ namespace CowboyCafe.Data
             get { return pickle; }
             set { pickle = value; }
         }
+
+        public override string ToString()
+        {
+            return "Angry Chicken";
+        }
     }
 }

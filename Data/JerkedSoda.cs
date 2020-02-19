@@ -65,5 +65,31 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(this.Size);
+            switch (Flavor)
+            {
+                case SodaFlavor.CreamSoda:
+                    sb.Append(" Cream Soda");
+                    break;
+                case SodaFlavor.OrangeSoda:
+                    sb.Append(" Orange Soda");
+                    break;
+                case SodaFlavor.Sarsparilla:
+                    sb.Append(" Sarsparilla");
+                    break;
+                case SodaFlavor.BirchBeer:
+                    sb.Append(" Birch Beer");
+                    break;
+                case SodaFlavor.RootBeer:
+                    sb.Append(" Root Beer");
+                    break;
+            }
+            sb.Append(" Jerked Soda");
+            return sb.ToString();
+        }
     }
 }

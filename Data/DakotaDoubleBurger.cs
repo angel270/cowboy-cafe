@@ -134,5 +134,10 @@ namespace CowboyCafe.Data
             get { return mayo; }
             set { mayo = value; }
         }
+
+        public override string ToString()
+        {
+            return "Dakota Double Burger";
+        }
     }
 }

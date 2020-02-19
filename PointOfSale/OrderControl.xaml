@@ -5,40 +5,54 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" Background="#FF989898" Height="450" MinHeight="450">
     <UserControl.Resources>
         <Style TargetType="Button">
             <Setter Property="Height" Value="75"></Setter>
         </Style>
     </UserControl.Resources>
-    
+
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel>
-            <TextBlock TextAlignment="Center">Entrees</TextBlock>
-            <Button Name="AddAngryChicken">Angry Chicken</Button>
-            <Button>Cowpoke Chili</Button>
-        </StackPanel>
-        
-        <StackPanel Grid.Column = "1">
-            <TextBlock TextAlignment="Center">Sides</TextBlock>
-            
-        </StackPanel>
-        
-        <StackPanel Grid.Column = "2">
-            <TextBlock TextAlignment="Center">Drinks</TextBlock>
+        <StackPanel Grid.ColumnSpan="2">
+            <TextBlock TextAlignment="Center" Background="#FFD78828">Entrees</TextBlock>
+            <Button Name="AddAngryChicken" Height="55" Click="AddAngryChicken_Click" Margin="5,5,5,3">Angry Chicken</Button>
+            <Button Name="AddCowpokeChili" Height="55" Click="AddCowpokeChili_Click" Margin="5,3,5,3">Cowpoke Chili</Button>
+            <Button Name="AddRustlersRibs" Height="55" Click="AddRustlersRibs_Click" Margin="5,3,5,3">Rustler's Ribs</Button>
+            <Button Name="AddPecosPulledPork" Height="55" Click="AddPecosPulledPork_Click" Margin="5,3,5,3">Pecos Pulled Pork</Button>
+            <Button Name="AddTrailBurger" Height="55" Click="AddTrailBurger_Click" Margin="5,3,5,3">Trail Burger</Button>
+            <Button Name="AddDakotaDouble" Height="55" Click="AddDakotaDouble_Click" Margin="5,3,5,3">Dakota Double Burger</Button>
+            <Button Name="AddTexasTriple" Height="55" Click="AddTexasTriple_Click" Margin="5,3,5,3">Texas Triple Burger</Button>
 
+        </StackPanel>
+
+        <StackPanel Grid.Column = "2">
+            <TextBlock TextAlignment="Center" Background="#FFD78828">Sides</TextBlock>
+            <Button Name="AddChiliCheeseFries" Height="55" Margin="5,5,5,3" Click="AddChiliCheeseFries_Click">Chili Cheese Fries</Button>
+            <Button Name="AddPanDeCampo" Height="55" Margin="5,3,5,3" Click="AddPanDeCampo_Click">Pan de Campo</Button>
+            <Button Name="AddCornDodgers" Height="55" Margin="5,3,5,3" Click="AddCornDodgers_Click">Corn Dodgers</Button>
+            <Button Name="AddBakedBeans" Height="55" Margin="5,3,5,3" Click="AddBakedBeans_Click">Baked Beans</Button>
         </StackPanel>
 
         <StackPanel Grid.Column = "3">
-            <TextBlock TextAlignment="Center">Order</TextBlock>
+            <TextBlock TextAlignment="Center" Background="#FFD78828">Drinks</TextBlock>
+            <Button Name="AddJerkedSoda" Height="55" Margin="5,5,5,3" Click="AddJerkedSoda_Click">Jerked Soda</Button>
+            <Button Name="AddTexasTea" Height="55" Margin="5,3,5,3" Click="AddTexasTea_Click">Texas Tea</Button>
+            <Button Name="AddCowboyCoffee" Height="55" Margin="5,3,5,3" Click="AddCowboyCoffee_Click">Cowboy Coffee</Button>
+            <Button Name="AddWater" Height="55" Margin="5,3,5,3" Click="AddWater_Click">Water</Button>
 
+        </StackPanel>
+
+        <StackPanel Grid.Column = "4" HorizontalAlignment="Center" Width="200">
+            <TextBlock TextAlignment="Center" Background="#FFD78828" Grid.IsSharedSizeScope="True">Order</TextBlock>
+            <ListBox Name="ItemsOrdered" Margin="5,5,5,0" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" MaxHeight="350" Height="350" BorderBrush="Black"></ListBox>
         </StackPanel>
     </Grid>
 </UserControl>

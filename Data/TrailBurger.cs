@@ -95,5 +95,10 @@ namespace CowboyCafe.Data
             get { return cheese; }
             set { cheese = value; }
         }
+
+        public override string ToString()
+        {
+            return "Trail Burger";
+        }
     }
 }
