@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PointOfSale"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Cowboy Cafe Point of Sale" Height="465" Width="800" MinHeight="465" MaxHeight="465" ShowInTaskbar="False" SizeToContent="Manual" MinWidth="800" MaxWidth="800" ResizeMode="CanMinimize">
     <Grid>
-        <local:OrderControl></local:OrderControl>
+        <local:OrderControl RenderTransformOrigin="0.5,0.5" MaxHeight="450">
+            <local:OrderControl.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.1"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-0.391"/>
+                </TransformGroup>
+            </local:OrderControl.RenderTransform>
+        </local:OrderControl>
     </Grid>
 </Window>
