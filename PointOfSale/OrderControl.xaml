@@ -4,8 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Background="#FF989898" Height="450" MinHeight="450">
+             mc:Ignorable="d" d:DesignWidth="800" Background="#FF989898" Height="460">
     <UserControl.Resources>
         <Style TargetType="Button">
             <Setter Property="Height" Value="75"></Setter>
@@ -13,46 +12,48 @@
     </UserControl.Resources>
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="19*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="19*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="19*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0*"/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="2.335*"/>
+            <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
+        <TextBlock FontFamily="Rockwell" Background="#FFD17D17" VerticalAlignment="Stretch" FontSize="18" FontWeight="Heavy" FontStretch="Medium" FontStyle="Normal">Entree</TextBlock>
+        <WrapPanel Grid.Row="1">
 
-        <StackPanel Grid.ColumnSpan="2">
-            <TextBlock TextAlignment="Center" Background="#FFD78828">Entrees</TextBlock>
-            <Button Name="AddAngryChicken" Height="55" Click="AddAngryChicken_Click" Margin="5,5,5,3">Angry Chicken</Button>
-            <Button Name="AddCowpokeChili" Height="55" Click="AddCowpokeChili_Click" Margin="5,3,5,3">Cowpoke Chili</Button>
-            <Button Name="AddRustlersRibs" Height="55" Click="AddRustlersRibs_Click" Margin="5,3,5,3">Rustler's Ribs</Button>
-            <Button Name="AddPecosPulledPork" Height="55" Click="AddPecosPulledPork_Click" Margin="5,3,5,3">Pecos Pulled Pork</Button>
-            <Button Name="AddTrailBurger" Height="55" Click="AddTrailBurger_Click" Margin="5,3,5,3">Trail Burger</Button>
-            <Button Name="AddDakotaDouble" Height="55" Click="AddDakotaDouble_Click" Margin="5,3,5,3">Dakota Double Burger</Button>
-            <Button Name="AddTexasTriple" Height="55" Click="AddTexasTriple_Click" Margin="5,3,5,3">Texas Triple Burger</Button>
+            <Button Name="AddAngryChicken" Height="55" Click="AddAngryChicken_Click" Margin="5,5,5,3" FontFamily="Rockwell" Width="130">Angry Chicken</Button>
+            <Button Name="AddCowpokeChili" Height="55" Click="AddCowpokeChili_Click" Margin="5,3,5,3" FontFamily="Rockwell" Width="130">Cowpoke Chili</Button>
+            <Button Name="AddRustlersRibs" Height="55" Click="AddRustlersRibs_Click" Margin="5,3,5,3" FontFamily="Rockwell" Width="130">Rustler's Ribs</Button>
+            <Button Name="AddPecosPulledPork" Height="55" Click="AddPecosPulledPork_Click" Margin="5,3,5,3" FontFamily="Rockwell" Width="130">Pecos Pulled Pork</Button>
+            <Button Name="AddTrailBurger" Height="55" Click="AddTrailBurger_Click" Margin="5,3,5,3" FontFamily="Rockwell" Width="130">Trail Burger</Button>
+            <Button Name="AddDakotaDouble" Height="55" Click="AddDakotaDouble_Click" Margin="5,3,5,3" FontFamily="Rockwell" Width="130">Dakota Double Burger</Button>
+            <Button Name="AddTexasTriple" Height="55" Click="AddTexasTriple_Click" Margin="5,3,5,3" FontFamily="Rockwell" Width="130">Texas Triple Burger</Button>
 
-        </StackPanel>
+        </WrapPanel>
+        <TextBlock FontFamily="Rockwell" Background="#FFD17D17" VerticalAlignment="Stretch" FontSize="18" FontWeight="Heavy" FontStretch="Medium" FontStyle="Normal" Grid.Row="2">Sides</TextBlock>
+        <WrapPanel Grid.Row="3">
+            <Button Name="AddChiliCheeseFries" Height="55" Margin="5,5,5,3" Click="AddChiliCheeseFries_Click" FontFamily="Rockwell" Width="130">Chili Cheese Fries</Button>
+            <Button Name="AddPanDeCampo" Height="55" Margin="5,3,5,3" Click="AddPanDeCampo_Click" FontFamily="Rockwell" Width="130">Pan de Campo</Button>
+            <Button Name="AddCornDodgers" Height="55" Margin="5,3,5,3" Click="AddCornDodgers_Click" FontFamily="Rockwell" Width="130">Corn Dodgers</Button>
+            <Button Name="AddBakedBeans" Height="55" Margin="5,3,5,3" Click="AddBakedBeans_Click" FontFamily="Rockwell" Width="130">Baked Beans</Button>
 
-        <StackPanel Grid.Column = "2">
-            <TextBlock TextAlignment="Center" Background="#FFD78828">Sides</TextBlock>
-            <Button Name="AddChiliCheeseFries" Height="55" Margin="5,5,5,3" Click="AddChiliCheeseFries_Click">Chili Cheese Fries</Button>
-            <Button Name="AddPanDeCampo" Height="55" Margin="5,3,5,3" Click="AddPanDeCampo_Click">Pan de Campo</Button>
-            <Button Name="AddCornDodgers" Height="55" Margin="5,3,5,3" Click="AddCornDodgers_Click">Corn Dodgers</Button>
-            <Button Name="AddBakedBeans" Height="55" Margin="5,3,5,3" Click="AddBakedBeans_Click">Baked Beans</Button>
-        </StackPanel>
+        </WrapPanel>
+        <TextBlock FontFamily="Rockwell" Background="#FFD17D17" FontSize="18" FontWeight="Heavy" FontStretch="Medium" FontStyle="Normal" Grid.Row="4">Drinks</TextBlock>
+        <WrapPanel Grid.Row="5">
+            <Button Name="AddJerkedSoda" Height="55" Margin="5,5,5,3" Click="AddJerkedSoda_Click" FontFamily="Rockwell" Width="130">Jerked Soda</Button>
+            <Button Name="AddTexasTea" Height="55" Margin="5,3,5,3" Click="AddTexasTea_Click" FontFamily="Rockwell" Width="130">Texas Tea</Button>
+            <Button Name="AddCowboyCoffee" Height="55" Margin="5,3,5,3" Click="AddCowboyCoffee_Click" FontFamily="Rockwell" Width="130">Cowboy Coffee</Button>
+            <Button Name="AddWater" Height="55" Margin="5,3,5,3" Click="AddWater_Click" FontFamily="Rockwell" Width="130">Water</Button>
 
-        <StackPanel Grid.Column = "3">
-            <TextBlock TextAlignment="Center" Background="#FFD78828">Drinks</TextBlock>
-            <Button Name="AddJerkedSoda" Height="55" Margin="5,5,5,3" Click="AddJerkedSoda_Click">Jerked Soda</Button>
-            <Button Name="AddTexasTea" Height="55" Margin="5,3,5,3" Click="AddTexasTea_Click">Texas Tea</Button>
-            <Button Name="AddCowboyCoffee" Height="55" Margin="5,3,5,3" Click="AddCowboyCoffee_Click">Cowboy Coffee</Button>
-            <Button Name="AddWater" Height="55" Margin="5,3,5,3" Click="AddWater_Click">Water</Button>
+        </WrapPanel>
+        <TextBlock FontFamily="Rockwell" Background="#FFD17D17" FontSize="18" FontWeight="Heavy" FontStretch="Expanded" FontStyle="Italic" Grid.Column="1" TextAlignment="Center" LineStackingStrategy="BlockLineHeight" AutomationProperties.IsColumnHeader="True">Order</TextBlock>
+        <ListBox Name="ItemsOrdered" Margin="5,5,5,0" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" Height="350" BorderBrush="Black" ScrollViewer.HorizontalScrollBarVisibility="Hidden" FontSize="11" Grid.Column="1" Grid.Row="1" Grid.IsSharedSizeScope="True" Grid.ColumnSpan="8" ClipToBounds="True" UseLayoutRounding="True" Panel.ZIndex="2" Grid.RowSpan="8" VerticalAlignment="Top"/>
 
-        </StackPanel>
-
-        <StackPanel Grid.Column = "4" HorizontalAlignment="Center" Width="200">
-            <TextBlock TextAlignment="Center" Background="#FFD78828" Grid.IsSharedSizeScope="True">Order</TextBlock>
-            <ListBox Name="ItemsOrdered" Margin="5,5,5,0" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" MaxHeight="350" Height="350" BorderBrush="Black"></ListBox>
-        </StackPanel>
     </Grid>
 </UserControl>
