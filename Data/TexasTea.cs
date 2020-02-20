@@ -95,9 +95,13 @@ namespace CowboyCafe.Data
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(this.Size);
+            
+            sb.Append(" Texas");
             if (!Sweet)
-                sb.Append(" Iced");
-            sb.Append(" Texas Tea");
+                sb.Append(" Plain");
+            else
+                sb.Append(" Sweet");
+            sb.Append(" Tea");
             return sb.ToString();
         }
     }
