@@ -4,16 +4,15 @@ using System.Text;
 using Xunit;
 using CowboyCafe.Data;
 
-namespace CowboyCafe.DataTests.UnitTests
+namespace CowboyCafe.DataTests.UnitTests  
 {
-    public class OrderTests
-    {
-        public class MockOrderItem : IOrderItem
+    public class MockOrderItem : IOrderItem
         {
             public double Price { get; set; }
             public List<string> SpecialInstructions { get; set; }
         }
-
+    public class OrderTests
+    {
         [Fact]
         public void ShouldBeAbleToAddItems()
         {
