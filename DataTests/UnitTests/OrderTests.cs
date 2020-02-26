@@ -102,9 +102,10 @@ namespace CowboyCafe.DataTests.UnitTests
         {
             var order = new Order();
             var item = new MockOrderItem();
+            order.Add(item);
             Assert.PropertyChanged(order, propertyName, () =>
             {
-                order.Add(item);
+                order.Remove(item);
             });
         }
     }
