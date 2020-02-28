@@ -6,13 +6,14 @@ using CowboyCafe.Data;
 
 namespace CowboyCafe.DataTests.UnitTests  
 {
-    public class MockOrderItem : IOrderItem
-    {
-        public double Price { get; set; }
-        public List<string> SpecialInstructions { get; set; }
-    }
     public class OrderTests
     {
+        public class MockOrderItem : IOrderItem
+        {
+            public double Price { get; set; }
+            public List<string> SpecialInstructions { get; set; }
+        }
+
         [Fact]
         public void ShouldBeAbleToAddItems()
         {
@@ -106,6 +107,14 @@ namespace CowboyCafe.DataTests.UnitTests
             {
                 order.Remove(item);
             });
+        }
+
+        [Fact]
+        public void OrderNumberShouldBeDifferent()
+        {
+            var o0 = new Order();
+            var o1 = new Order();
+            Assert.NotEqual(o0.OrderNumber, o1.OrderNumber);
         }
     }
 }
