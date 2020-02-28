@@ -7,10 +7,10 @@ using CowboyCafe.Data;
 namespace CowboyCafe.DataTests.UnitTests  
 {
     public class MockOrderItem : IOrderItem
-        {
-            public double Price { get; set; }
-            public List<string> SpecialInstructions { get; set; }
-        }
+    {
+        public double Price { get; set; }
+        public List<string> SpecialInstructions { get; set; }
+    }
     public class OrderTests
     {
         [Fact]
