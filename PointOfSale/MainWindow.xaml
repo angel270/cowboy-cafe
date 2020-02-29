@@ -5,17 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PointOfSale"
         mc:Ignorable="d"
-        Title="Cowboy Cafe Point of Sale" Width="800" SizeToContent="Height" ResizeMode="NoResize" ShowActivated="False" WindowStyle="ThreeDBorderWindow" ShowInTaskbar="True">
+        Title="Cowboy Cafe Point of Sale" Width="800" Height="460" SizeToContent="Height" ResizeMode="NoResize" ShowActivated="False" WindowStyle="ThreeDBorderWindow" ShowInTaskbar="True">
     <Grid>
-        <local:OrderControl RenderTransformOrigin="0.5,0.5" Cursor="Cross" VerticalAlignment="Top" AutomationProperties.IsRowHeader="True">
-            <local:OrderControl.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleX="0.1"/>
-                    <RotateTransform/>
-                    <TranslateTransform X="-0.391"/>
-                </TransformGroup>
-            </local:OrderControl.RenderTransform>
-        </local:OrderControl>
+        <local:OrderControl/>
     </Grid>
 </Window>

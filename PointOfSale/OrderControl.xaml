@@ -21,8 +21,8 @@
             <RowDefinition Height="19*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2.335*"/>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="575"/>
+            <ColumnDefinition Width="225"/>
         </Grid.ColumnDefinitions>
         <TextBlock FontFamily="Rockwell" Background="#FFD17D17" VerticalAlignment="Stretch" FontSize="18" FontWeight="Heavy" FontStretch="Medium" FontStyle="Normal">Entree</TextBlock>
         <WrapPanel Grid.Row="1">
