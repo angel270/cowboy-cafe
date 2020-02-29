@@ -13,47 +13,11 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="4*"/>
-            <RowDefinition Height="19*"/>
-            <RowDefinition Height="4*"/>
-            <RowDefinition Height="19*"/>
-            <RowDefinition Height="4*"/>
-            <RowDefinition Height="19*"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="575"/>
             <ColumnDefinition Width="225"/>
         </Grid.ColumnDefinitions>
-        <TextBlock FontFamily="Rockwell" Background="#FFD17D17" VerticalAlignment="Stretch" FontSize="18" FontWeight="Heavy" FontStretch="Medium" FontStyle="Normal">Entree</TextBlock>
-        <WrapPanel Grid.Row="1">
-
-            <Button Name="AddAngryChicken" Height="55" Click="AddAngryChicken_Click" Margin="5,5,5,3" FontFamily="Rockwell" Width="130">Angry Chicken</Button>
-            <Button Name="AddCowpokeChili" Height="55" Click="AddCowpokeChili_Click" Margin="5,3,5,3" FontFamily="Rockwell" Width="130">Cowpoke Chili</Button>
-            <Button Name="AddRustlersRibs" Height="55" Click="AddRustlersRibs_Click" Margin="5,3,5,3" FontFamily="Rockwell" Width="130">Rustler's Ribs</Button>
-            <Button Name="AddPecosPulledPork" Height="55" Click="AddPecosPulledPork_Click" Margin="5,3,5,3" FontFamily="Rockwell" Width="130">Pecos Pulled Pork</Button>
-            <Button Name="AddTrailBurger" Height="55" Click="AddTrailBurger_Click" Margin="5,3,5,3" FontFamily="Rockwell" Width="130">Trail Burger</Button>
-            <Button Name="AddDakotaDouble" Height="55" Click="AddDakotaDouble_Click" Margin="5,3,5,3" FontFamily="Rockwell" Width="130">Dakota Double Burger</Button>
-            <Button Name="AddTexasTriple" Height="55" Click="AddTexasTriple_Click" Margin="5,3,5,3" FontFamily="Rockwell" Width="130">Texas Triple Burger</Button>
-
-        </WrapPanel>
-        <TextBlock FontFamily="Rockwell" Background="#FFD17D17" VerticalAlignment="Stretch" FontSize="18" FontWeight="Heavy" FontStretch="Medium" FontStyle="Normal" Grid.Row="2">Sides</TextBlock>
-        <WrapPanel Grid.Row="3">
-            <Button Name="AddChiliCheeseFries" Height="55" Margin="5,5,5,3" Click="AddChiliCheeseFries_Click" FontFamily="Rockwell" Width="130">Chili Cheese Fries</Button>
-            <Button Name="AddPanDeCampo" Height="55" Margin="5,3,5,3" Click="AddPanDeCampo_Click" FontFamily="Rockwell" Width="130">Pan de Campo</Button>
-            <Button Name="AddCornDodgers" Height="55" Margin="5,3,5,3" Click="AddCornDodgers_Click" FontFamily="Rockwell" Width="130">Corn Dodgers</Button>
-            <Button Name="AddBakedBeans" Height="55" Margin="5,3,5,3" Click="AddBakedBeans_Click" FontFamily="Rockwell" Width="130">Baked Beans</Button>
-
-        </WrapPanel>
-        <TextBlock FontFamily="Rockwell" Background="#FFD17D17" FontSize="18" FontWeight="Heavy" FontStretch="Medium" FontStyle="Normal" Grid.Row="4">Drinks</TextBlock>
-        <WrapPanel Grid.Row="5">
-            <Button Name="AddJerkedSoda" Height="55" Margin="5,5,5,3" Click="AddJerkedSoda_Click" FontFamily="Rockwell" Width="130">Jerked Soda</Button>
-            <Button Name="AddTexasTea" Height="55" Margin="5,3,5,3" Click="AddTexasTea_Click" FontFamily="Rockwell" Width="130">Texas Tea</Button>
-            <Button Name="AddCowboyCoffee" Height="55" Margin="5,3,5,3" Click="AddCowboyCoffee_Click" FontFamily="Rockwell" Width="130">Cowboy Coffee</Button>
-            <Button Name="AddWater" Height="55" Margin="5,3,5,3" Click="AddWater_Click" FontFamily="Rockwell" Width="130">Water</Button>
-
-        </WrapPanel>
-        <TextBlock FontFamily="Rockwell" Background="#FFD17D17" FontSize="18" FontWeight="Heavy" FontStretch="Expanded" FontStyle="Italic" Grid.Column="1" TextAlignment="Center" LineStackingStrategy="BlockLineHeight" AutomationProperties.IsColumnHeader="True">Order</TextBlock>
-        <ListBox Name="ItemsOrdered" Margin="5,4,5,0" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" Height="350" BorderBrush="Black" ScrollViewer.HorizontalScrollBarVisibility="Hidden" FontSize="11" Grid.Column="1" Grid.Row="1" Grid.IsSharedSizeScope="True" Grid.ColumnSpan="8" ClipToBounds="True" UseLayoutRounding="True" Panel.ZIndex="2" Grid.RowSpan="8" VerticalAlignment="Top"/>
-
     </Grid>
 </UserControl>
