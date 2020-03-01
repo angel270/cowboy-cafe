@@ -8,7 +8,7 @@ namespace CowboyCafe.Data
     {
         private static uint lastOrderNumber = 0;
         private List<IOrderItem> items = new List<IOrderItem>();
-        public IEnumerable<IOrderItem> Items => items;
+        public IEnumerable<IOrderItem> Items => items.ToArray();
         public double Subtotal
         {
             get

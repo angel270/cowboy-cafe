@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PointOfSale"
         mc:Ignorable="d"
-        Title="Cowboy Cafe Point of Sale" Width="800" Height="460" SizeToContent="Height" ResizeMode="NoResize" ShowActivated="False" WindowStyle="ThreeDBorderWindow" ShowInTaskbar="True">
-    <Grid>
-        <local:OrderControl/>
+        Title="Cowboy Cafe Point of Sale" Width="800" SizeToContent="Height" ResizeMode="NoResize" ShowActivated="False" WindowStyle="ThreeDBorderWindow" ShowInTaskbar="True" Height="475">
+    <Grid VerticalAlignment="Top" Height="460">
+        <local:OrderControl VerticalAlignment="Top"/>
     </Grid>
 </Window>

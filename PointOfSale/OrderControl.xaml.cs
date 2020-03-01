@@ -22,6 +22,18 @@ namespace PointOfSale
         public OrderControl()
         {
             InitializeComponent();
+            var data = new Order();
+            this.DataContext = data;
+        }
+
+        private void CancelOrder_Click(object sender, RoutedEventArgs e)
+        {
+            new OrderControl();
+        }
+
+        private void CompleteOrder_Click(object sender, RoutedEventArgs e)
+        {
+            new OrderControl();
         }
     }
 }
