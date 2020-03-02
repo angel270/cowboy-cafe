@@ -16,14 +16,14 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <WrapPanel>
-            <Button x:Name="ItemSelection" Width="160" Height="50" Margin="10,30,20,30" FontFamily="Rockwell" FontSize="18" FontWeight="Bold">Item Selection</Button>
-            <Button x:Name="CancelOrder" Width="160" Height="50" Margin="10,30,10,30" FontFamily="Rockwell" FontSize="18" FontWeight="Bold" Click="CancelOrder_Click">Cancel Order</Button>
-            <Button x:Name="CompleteOrder" Width="160" Height="50" Margin="10,30,10,30" FontFamily="Rockwell" FontSize="18" FontWeight="Bold" Click="CompleteOrder_Click">Complete Order</Button>
+        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-10,0,0,0">
+            <Button x:Name="ItemSelection" Width="160" Height="50" FontFamily="Rockwell" FontSize="18" FontWeight="Bold" Margin="10,30,0,30" HorizontalAlignment="Left" VerticalAlignment="Center">Item Selection</Button>
+            <Button x:Name="CancelOrder" Width="160" Height="50" FontFamily="Rockwell" FontSize="18" FontWeight="Bold" Click="CancelOrder_Click" Margin="10,30,0,30" HorizontalAlignment="Left" VerticalAlignment="Center">Cancel Order</Button>
+            <Button x:Name="CompleteOrder" Width="160" Height="50" FontFamily="Rockwell" FontSize="18" FontWeight="Bold" Click="CompleteOrder_Click" Margin="10,30,0,30" HorizontalAlignment="Left" VerticalAlignment="Center">Complete Order</Button>
         </WrapPanel>
 
         <Grid Grid.Row="1" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
-            <local:MenuItemSelectionControl/>
+            <local:MenuItemSelectionControl Height="310" VerticalAlignment="Top"/>
         </Grid>
         <local:OrderSummaryControl Grid.Column="1" Grid.RowSpan="3"/>
     </Grid>

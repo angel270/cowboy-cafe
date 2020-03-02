@@ -7,8 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="460" d:DesignWidth="225" Height="470">
     <StackPanel Height="470">
-        <TextBlock FontFamily="Rockwell" Background="#FFD17D17" FontSize="18" FontWeight="Heavy" FontStretch="Expanded" FontStyle="Italic" Grid.Column="1" TextAlignment="Center" LineStackingStrategy="BlockLineHeight" AutomationProperties.IsColumnHeader="True" Text="{Binding Path=OrderNumber, StringFormat=Order {0}}" Height="25"></TextBlock>
-        <ListBox Name="ItemsOrdered" Margin="5,5,5,5"  Height="390" BorderBrush="Black" FontSize="11" ItemsSource="{Binding Path = Items}" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+        <TextBlock FontFamily="Rockwell" Background="#FFD17D17" FontSize="18" FontWeight="Heavy" FontStretch="Expanded" FontStyle="Italic" Grid.Column="1" TextAlignment="Center" LineStackingStrategy="BlockLineHeight" AutomationProperties.IsColumnHeader="True" Text="{Binding Path=OrderNumber, StringFormat=Order {0}}" Height="25" Margin="0,0,5,0"></TextBlock>
+        <ListBox Name="ItemsOrdered" Margin="0,5,5,5"  Height="390" BorderBrush="Black" FontSize="11" ItemsSource="{Binding Path = Items}" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -16,8 +16,13 @@
                             <ColumnDefinition Width="160"/>
                             <ColumnDefinition Width="65"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="{Binding Path = Data.Items}"/>
-                        <TextBlock Text="{Binding Path = Price, StringFormat=c}" Grid.Column="1"></TextBlock>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="{Binding}"/>
+                        <TextBlock Text="{Binding Path = SpecialInstructions}" Grid.Row="1"/>
+                        <TextBlock Text="{Binding Path = Price, StringFormat=c}" Grid.Column="1"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -28,7 +33,8 @@
                 <ColumnDefinition Width="65"/>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Column="0" Background="White"  Height="30" VerticalAlignment="Top" FontFamily="Rockwell" FontWeight="Bold" FontSize="18" HorizontalAlignment="Stretch" TextAlignment="Justify" Margin="0,0,5,5" >Subtotal</TextBlock>
-            <TextBlock Grid.Column="1" Text="{Binding Path=Subtotal, StringFormat=c}" Background="White" Margin="0,0,0,5" />
+            <TextBlock Text="{Binding Path=Subtotal, StringFormat=c}" Grid.Column="1" Background="White" Margin="0,0,5,5"/>
         </Grid>
     </StackPanel>
 </UserControl>
+    
