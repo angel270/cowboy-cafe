@@ -28,12 +28,12 @@ namespace PointOfSale
 
         private void CancelOrder_Click(object sender, RoutedEventArgs e)
         {
-            new OrderControl();
+            this.DataContext = new Order();
         }
 
         private void CompleteOrder_Click(object sender, RoutedEventArgs e)
         {
-            new OrderControl();
+            this.DataContext = new Order();
         }
     }
 }
