@@ -11,6 +11,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
+using PointOfSale.CustomizationScreens;
+using PointOfSale.ExtensionMethods;
 
 namespace PointOfSale
 {
@@ -30,8 +32,14 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void AddTexasTriple_Click(object sender, RoutedEventArgs e)
         {
-            if(DataContext is Order data)
-                data.Add(new TexasTripleBurger());
+            var orderControl = this.FindAncestor<OrderControl>();
+            var item = new TexasTripleBurger();
+            var screen = new TexasTripleCustomization();
+            screen.DataContext = item;
+
+            if (DataContext is Order data)
+                data.Add(item);
+            orderControl.SwapScreen(screen);
         }
         /// <summary>
         /// Handles dakota double button
@@ -40,8 +48,14 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void AddDakotaDouble_Click(object sender, RoutedEventArgs e)
         {
+            var orderControl = this.FindAncestor<OrderControl>();
+            var item = new DakotaDoubleBurger();
+            var screen = new DakotaDoubleCustomization();
+            screen.DataContext = item;
+
             if (DataContext is Order data)
-                data.Add(new DakotaDoubleBurger());
+                data.Add(item);
+            orderControl.SwapScreen(screen);
         }
         /// <summary>
         /// Handles trail burger button
@@ -50,8 +64,14 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void AddTrailBurger_Click(object sender, RoutedEventArgs e)
         {
+            var orderControl = this.FindAncestor<OrderControl>();
+            var item = new TrailBurger();
+            var screen = new TrailBurgerCustomization();
+            screen.DataContext = item;
+
             if (DataContext is Order data)
-                data.Add(new TrailBurger());
+                data.Add(item);
+            orderControl.SwapScreen(screen);
         }
         /// <summary>
         /// Handles pecos pulled pork button
@@ -60,8 +80,14 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void AddPecosPulledPork_Click(object sender, RoutedEventArgs e)
         {
+            var orderControl = this.FindAncestor<OrderControl>();
+            var item = new PecosPulledPork();
+            var screen = new PecosPulledPorkCustomization();
+            screen.DataContext = item;
+
             if (DataContext is Order data)
-               data.Add(new PecosPulledPork());
+                data.Add(item);
+            orderControl.SwapScreen(screen);
         }
         /// <summary>
         /// Handles rustlers ribs button
@@ -70,8 +96,14 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void AddRustlersRibs_Click(object sender, RoutedEventArgs e)
         {
+            var orderControl = this.FindAncestor<OrderControl>();
+            var item = new RustlersRibs();
+            var screen = new RustlersRibsCustomization();
+            screen.DataContext = item;
+
             if (DataContext is Order data)
-                data.Add(new RustlersRibs());
+                data.Add(item);
+            orderControl.SwapScreen(screen);
         }
         /// <summary>
         /// Handles cowpoke chili button
@@ -80,8 +112,14 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void AddCowpokeChili_Click(object sender, RoutedEventArgs e)
         {
+            var orderControl = this.FindAncestor<OrderControl>();
+            var item = new CowpokeChili();
+            var screen = new CowpokeChiliCustomization();
+            screen.DataContext = item;
+            
             if (DataContext is Order data)
-                data.Add(new CowpokeChili());
+                data.Add(item);
+            orderControl.SwapScreen(screen);
         }
         /// <summary>
         /// Handles angry chicken button
@@ -90,8 +128,14 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void AddAngryChicken_Click(object sender, RoutedEventArgs e)
         {
+            var orderControl = this.FindAncestor<OrderControl>();
+            var item = new AngryChicken();
+            var screen = new AngryChickenCustomization();
+            screen.DataContext = item;
+
             if (DataContext is Order data)
-                data.Add(new AngryChicken());
+                data.Add(item);
+            orderControl.SwapScreen(screen);
         }
         /// <summary>
         /// Handles chili cheese fries button

@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     public class TrailBurger : Entree
     {
+        /// <summary>
+        /// Handles the property changes
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// Special Instructions for the sandwich
         /// </summary>
@@ -46,24 +51,34 @@ namespace CowboyCafe.Data
             get { return 288; }
         }
 
-        private bool bun = true;
+        private bool bun = false;
         /// <summary>
         /// If the customer does not want buns
         /// </summary>
         public bool Bun
         {
             get { return bun; }
-            set { bun = value; }
+            set
+            {
+                bun = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bun"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
-        private bool ketchup = true;
+        private bool ketchup = false;
         /// <summary>
         /// If the customer does not want ketchup
         /// </summary>
         public bool Ketchup
         {
             get { return ketchup; }
-            set { ketchup = value; }
+            set
+            {
+                ketchup = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ketchup"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         private bool mustard = true;
@@ -73,7 +88,12 @@ namespace CowboyCafe.Data
         public bool Mustard
         {
             get { return mustard; }
-            set { mustard = value; }
+            set
+            {
+                mustard = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mustard"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         private bool pickle = true;
@@ -83,7 +103,12 @@ namespace CowboyCafe.Data
         public bool Pickle
         {
             get { return pickle; }
-            set { pickle = value; }
+            set
+            {
+                pickle = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         private bool cheese = true;
@@ -93,7 +118,12 @@ namespace CowboyCafe.Data
         public bool Cheese
         {
             get { return cheese; }
-            set { cheese = value; }
+            set
+            {
+                cheese = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         public override string ToString()

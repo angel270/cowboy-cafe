@@ -21,7 +21,7 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
                         <TextBlock Text="{Binding}"/>
-                        <ListBox ItemsSource="{Binding Path = SpecialInstructions}" Grid.Row="1" Margin="25,0,0,0" BorderBrush="White"/>
+                        <ListView ItemsSource="{Binding Path = SpecialInstructions}" Grid.Row="1" Margin="25,0,0,0" BorderBrush="White" IsEnabled="True"/>
                         <TextBlock Text="{Binding Path = Price, StringFormat=c}" Grid.Column="1"/>
                     </Grid>
                 </DataTemplate>

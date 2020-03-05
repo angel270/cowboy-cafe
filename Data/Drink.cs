@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
-    public abstract class Drink : IOrderItem
+    public abstract class Drink : IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Handles the property changes
+        /// </summary>
+        public virtual event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// The size of a drink
         /// </summary>
@@ -18,10 +23,19 @@ namespace CowboyCafe.Data
         /// The calories in a drink
         /// </summary>
         public abstract uint Calories { get; }
+        private bool ice = true;
         /// <summary>
         /// If there is ice in a drink
         /// </summary>
-        public virtual bool Ice { get; set; } = true;
+        public virtual bool Ice { 
+            get { return ice; }
+            set
+            {
+                ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        } 
         /// <summary>
         /// If there are any special instructions for a drink
         /// </summary>

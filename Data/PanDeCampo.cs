@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     public class PanDeCampo : Side
     {
+        /// <summary>
+        /// Handles the property changes
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// Returns the price of the side based on size
         /// </summary>
