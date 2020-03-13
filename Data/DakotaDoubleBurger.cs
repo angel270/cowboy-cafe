@@ -60,7 +60,7 @@ namespace CowboyCafe.Data
             get { return 464; }
         }
 
-        private bool bun = false;
+        private bool bun = true;
         /// <summary>
         /// If the customer does not want buns
         /// </summary>
@@ -75,7 +75,7 @@ namespace CowboyCafe.Data
             }
         }
 
-        private bool ketchup = false;
+        private bool ketchup = true;
         /// <summary>
         /// If the customer does not want ketchup
         /// </summary>

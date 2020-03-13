@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
@@ -10,9 +11,25 @@ namespace CowboyCafe.Data
     public abstract class Side : IOrderItem
     {
         /// <summary>
+        /// Handles the property changes
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private Size size = Size.Small;
+        /// <summary>
         /// Gets the size of the entree
         /// </summary>
-        public virtual Size Size { get; set; }
+        public virtual Size Size { 
+            get 
+            {
+                return size;
+            } 
+            set 
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+            }
+        }
 
         /// <summary>
         /// Gets the price of the side

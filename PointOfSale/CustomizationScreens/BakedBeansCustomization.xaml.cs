@@ -14,11 +14,11 @@ using System.Windows.Shapes;
 namespace PointOfSale.CustomizationScreens
 {
     /// <summary>
-    /// Interaction logic for RustlersRibsCustomization.xaml
+    /// Interaction logic for BakedBeansCustomization.xaml
     /// </summary>
-    public partial class RustlersRibsCustomization : UserControl
+    public partial class BakedBeansCustomization : UserControl
     {
-        public RustlersRibsCustomization()
+        public BakedBeansCustomization()
         {
             InitializeComponent();
         }

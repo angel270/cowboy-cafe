@@ -6,7 +6,30 @@
              xmlns:local="clr-namespace:PointOfSale.CustomizationScreens"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+    <StackPanel Background="#FFB6B6B6">
+        <TextBlock FontSize="35" Text="Texas Triple Burger" FontFamily="Rockwell" Background="#FFD17D17" Height="50" Padding="20,0,0,0" FontWeight="Bold" FontStyle="Italic"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel>
+                <CheckBox IsChecked="{Binding Ketchup}" BorderThickness="1,1,1,1" Margin="50,10,0,10" FontSize="20" FontFamily="Rockwell" RenderTransformOrigin="0.5,0.5" Content="Ketchup" Padding="4,-5,0,0" />
+                <CheckBox IsChecked="{Binding Bun}" BorderThickness="1,1,1,1" FontSize="20" FontFamily="Rockwell" RenderTransformOrigin="0.5,0.5" Content="Bun" Margin="50,10,0,10" Padding="4,-5,0,0" />
+                <CheckBox IsChecked="{Binding Mustard}" BorderThickness="1,1,1,1" FontSize="20" FontFamily="Rockwell" RenderTransformOrigin="0.5,0.5" Content="Mustard" Margin="50,10,0,10" Padding="4,-5,0,0" />
+                <CheckBox IsChecked="{Binding Pickle}" BorderThickness="1,1,1,1" FontSize="20" FontFamily="Rockwell" RenderTransformOrigin="0.5,0.5" Content="Pickle" Margin="50,10,0,10" Padding="4,-5,0,0" />
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <CheckBox IsChecked="{Binding Cheese}" BorderThickness="1,1,1,1" Margin="50,10,0,10" FontSize="20" FontFamily="Rockwell" RenderTransformOrigin="0.5,0.5" Content="Cheese" Padding="4,-5,0,0" />
+                <CheckBox IsChecked="{Binding Tomato}" BorderThickness="1,1,1,1" Margin="50,10,0,10" FontSize="20" FontFamily="Rockwell" RenderTransformOrigin="0.5,0.5" Content="Tomato" Padding="4,-5,0,0" />
+                <CheckBox IsChecked="{Binding Lettuce}" BorderThickness="1,1,1,1" Margin="50,10,0,10" FontSize="20" FontFamily="Rockwell" RenderTransformOrigin="0.5,0.5" Content="Lettuce" Padding="4,-5,0,0" />
+                <CheckBox IsChecked="{Binding Mayo}" BorderThickness="1,1,1,1" Margin="50,10,0,10" FontSize="20" FontFamily="Rockwell" RenderTransformOrigin="0.5,0.5" Content="Mayo" Padding="4,-5,0,0" />
+            </StackPanel>
+            <StackPanel Grid.Column="2">
+                <CheckBox IsChecked="{Binding Egg}" BorderThickness="1,1,1,1" Margin="50,10,0,10" FontSize="20" FontFamily="Rockwell" RenderTransformOrigin="0.5,0.5" Content="Egg" Padding="4,-5,0,0" />
+                <CheckBox IsChecked="{Binding Bacon}" BorderThickness="1,1,1,1" Margin="50,10,0,10" FontSize="20" FontFamily="Rockwell" RenderTransformOrigin="0.5,0.5" Content="Bacon" Padding="4,-5,0,0" />
+            </StackPanel>
+        </Grid>
+    </StackPanel>
 </UserControl>
