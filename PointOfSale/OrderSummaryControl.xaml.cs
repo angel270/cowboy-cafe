@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CowboyCafe.Data;
 
 namespace PointOfSale
 {
@@ -21,6 +22,22 @@ namespace PointOfSale
         public OrderSummaryControl()
         {
             InitializeComponent();
+        }
+        public void OnDeleteItemButtonClicked(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order data)
+            {
+                if (sender is Button button)
+                {
+                    data.Remove((IOrderItem)button.DataContext);
+
+                }
+            }
+        }
+        public void ChangeExistingItem(object sender, SelectionChangedEventArgs args)
+        {
+            ListBoxItem lbi = ((sender as ListBox).SelectedItem as ListBoxItem);
+
         }
     }
 }

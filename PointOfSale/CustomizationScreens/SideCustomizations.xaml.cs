@@ -10,17 +10,26 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CowboyCafe.Data;
 
 namespace PointOfSale.CustomizationScreens
 {
     /// <summary>
-    /// Interaction logic for BakedBeansCustomization.xaml
+    /// Interaction logic for SideCustomizations.xaml
     /// </summary>
-    public partial class BakedBeansCustomization : UserControl
+    public partial class SideCustomizations : UserControl
     {
-        public BakedBeansCustomization()
+        private Order order;
+
+        public SideCustomizations(object o)
         {
+            order = (Order)o;
             InitializeComponent();
+        }
+
+        private void IsChecked()
+        {
+
         }
     }
 }
