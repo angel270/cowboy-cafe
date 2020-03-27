@@ -45,15 +45,77 @@ namespace PointOfSale
 
             foreach(object i in e.AddedItems)
             {
-                if (i is CowpokeChili)
+                if (i is AngryChicken)
+                {
+                    var screen = new AngryChickenCustomization();
+                    screen.DataContext = i;
+                    ancestor.SwapScreen(screen);
+                }
+                else if (i is CowboyCoffee)
+                {
+                    var screen = new CowboyCoffeCustomization();
+                    screen.DataContext = i;
+                    ancestor.SwapScreen(screen);
+                }
+                else if (i is CowpokeChili)
                 {
                     var screen = new CowpokeChiliCustomization();
                     screen.DataContext = i;
                     ancestor.SwapScreen(screen);
                 }
-                else
+                else if (i is DakotaDoubleBurger)
                 {
-
+                    var screen = new DakotaDoubleCustomization();
+                    screen.DataContext = i;
+                    ancestor.SwapScreen(screen);
+                }
+                else if (i is JerkedSoda)
+                {
+                    var screen = new JerkedSodaCustomization();
+                    screen.DataContext = i;
+                    ancestor.SwapScreen(screen);
+                }
+                else if (i is PecosPulledPork)
+                {
+                    var screen = new PecosPulledPorkCustomization();
+                    screen.DataContext = i;
+                    ancestor.SwapScreen(screen);
+                }
+                else if (i is PanDeCampo || i is BakedBeans || i is ChiliCheeseFries || i is CornDodgers)
+                {
+                    var screen = new SideCustomizations();
+                    screen.DataContext = i;
+                    ancestor.SwapScreen(screen);
+                }
+                else if (i is CowpokeChili)
+                {
+                    var screen = new CowpokeChiliCustomization();
+                    screen.DataContext = i;
+                    ancestor.SwapScreen(screen);
+                }
+                else if (i is TexasTea)
+                {
+                    var screen = new TexasTeaCustomization();
+                    screen.DataContext = i;
+                    ancestor.SwapScreen(screen);
+                }
+                else if (i is TexasTripleBurger)
+                {
+                    var screen = new TexasTripleCustomization();
+                    screen.DataContext = i;
+                    ancestor.SwapScreen(screen);
+                }
+                else if (i is TrailBurger)
+                {
+                    var screen = new TrailBurgerCustomization();
+                    screen.DataContext = i;
+                    ancestor.SwapScreen(screen);
+                }
+                else if (i is Water)
+                {
+                    var screen = new WaterCustomization();
+                    screen.DataContext = i;
+                    ancestor.SwapScreen(screen);
                 }
             }
         }
