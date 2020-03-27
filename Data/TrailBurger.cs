@@ -8,10 +8,6 @@ namespace CowboyCafe.Data
     public class TrailBurger : Entree
     {
         /// <summary>
-        /// Handles the property changes
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-        /// <summary>
         /// Special Instructions for the sandwich
         /// </summary>
         public override List<string> SpecialInstructions
@@ -61,8 +57,8 @@ namespace CowboyCafe.Data
             set
             {
                 bun = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bun"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertiesChanged("Bun");
+                PropertiesChanged("SpecialInstructions");
             }
         }
 
@@ -76,8 +72,8 @@ namespace CowboyCafe.Data
             set
             {
                 ketchup = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ketchup"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertiesChanged("Ketchup");
+                PropertiesChanged("SpecialInstructions");
             }
         }
 
@@ -91,8 +87,8 @@ namespace CowboyCafe.Data
             set
             {
                 mustard = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mustard"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertiesChanged("Mustard");
+                PropertiesChanged("SpecialInstructions");
             }
         }
 
@@ -106,8 +102,8 @@ namespace CowboyCafe.Data
             set
             {
                 pickle = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertiesChanged("Pickle");
+                PropertiesChanged("SpecialInstructions");
             }
         }
 
@@ -121,8 +117,8 @@ namespace CowboyCafe.Data
             set
             {
                 cheese = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertiesChanged("Cheese");
+                PropertiesChanged("SpecialInstructions");
             }
         }
 

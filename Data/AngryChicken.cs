@@ -11,10 +11,6 @@ namespace CowboyCafe.Data
     public class AngryChicken : Entree
     {
         /// <summary>
-        /// Handles the property changes
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-        /// <summary>
         /// Special Instructions for the sandwich
         /// </summary>
         public override List<string> SpecialInstructions
@@ -56,8 +52,8 @@ namespace CowboyCafe.Data
         {
             get { return bread; }
             set { bread = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bread"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertiesChanged("Bread");
+                PropertiesChanged("SpecialInstructions");
             }
         }
 
@@ -69,8 +65,8 @@ namespace CowboyCafe.Data
         {
             get { return pickle; }
             set { pickle = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertiesChanged("Pickle");
+                PropertiesChanged("SpecialInstructions");
             }
         }
 

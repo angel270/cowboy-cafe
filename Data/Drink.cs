@@ -11,10 +11,22 @@ namespace CowboyCafe.Data
         /// Handles the property changes
         /// </summary>
         public virtual event PropertyChangedEventHandler PropertyChanged;
+
+        private Size size = Size.Small;
         /// <summary>
         /// The size of a drink
         /// </summary>
-        public Size Size { get; set; } = Size.Small;
+        public Size Size
+        {
+            get { return size; }
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+            }
+        }
         /// <summary>
         /// The price of a drink
         /// </summary>
@@ -40,5 +52,10 @@ namespace CowboyCafe.Data
         /// If there are any special instructions for a drink
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
+
+        protected void PropertiesChanged(string property)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
+        }
     }
 }

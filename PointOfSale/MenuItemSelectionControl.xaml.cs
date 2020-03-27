@@ -142,7 +142,7 @@ namespace PointOfSale
         {
             var orderControl = this.FindAncestor<OrderControl>();
             var item = new ChiliCheeseFries();
-            var screen = new SideCustomizations(sender);
+            var screen = new SideCustomizations();
             screen.DataContext = item;
 
             if (DataContext is Order data)
@@ -158,7 +158,7 @@ namespace PointOfSale
         {
             var orderControl = this.FindAncestor<OrderControl>();
             var item = new PanDeCampo();
-            var screen = new SideCustomizations(sender);
+            var screen = new SideCustomizations();
             screen.DataContext = item;
 
             if (DataContext is Order data)
@@ -175,7 +175,7 @@ namespace PointOfSale
         {
             var orderControl = this.FindAncestor<OrderControl>();
             var item = new CornDodgers();
-            var screen = new SideCustomizations(sender);
+            var screen = new SideCustomizations();
             screen.DataContext = item;
 
             if (DataContext is Order data)
@@ -191,7 +191,7 @@ namespace PointOfSale
         {
             var orderControl = this.FindAncestor<OrderControl>();
             var item = new BakedBeans();
-            var screen = new SideCustomizations(sender);
+            var screen = new SideCustomizations();
             screen.DataContext = item;
 
             if (DataContext is Order data)

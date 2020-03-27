@@ -11,6 +11,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
+using PointOfSale.CustomizationScreens;
+using PointOfSale.ExtensionMethods;
 
 namespace PointOfSale
 {
@@ -29,15 +31,31 @@ namespace PointOfSale
             {
                 if (sender is Button button)
                 {
-                    data.Remove((IOrderItem)button.DataContext);
-
+                    if(button.DataContext is IOrderItem isItem)
+                        data.Remove(isItem);
                 }
             }
         }
-        public void ChangeExistingItem(object sender, SelectionChangedEventArgs args)
-        {
-            ListBoxItem lbi = ((sender as ListBox).SelectedItem as ListBoxItem);
 
+        public void ChangeExistingItem (object sender, SelectionChangedEventArgs e)
+        {
+            var ancestor = this.FindAncestor<OrderControl>();
+            if (ancestor == null)
+                return;
+
+            foreach(object i in e.AddedItems)
+            {
+                if (i is CowpokeChili)
+                {
+                    var screen = new CowpokeChiliCustomization();
+                    screen.DataContext = i;
+                    ancestor.SwapScreen(screen);
+                }
+                else
+                {
+
+                }
+            }
         }
     }
 }

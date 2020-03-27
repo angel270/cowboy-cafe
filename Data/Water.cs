@@ -5,12 +5,8 @@ using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
-    public class Water : Drink, INotifyPropertyChanged
+    public class Water : Drink
     {
-        /// <summary>
-        /// Handles the property changes
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
         private bool lemon = false;
         /// <summary>
         /// If this should be a lemon water
@@ -21,8 +17,8 @@ namespace CowboyCafe.Data
             set
             {
                 lemon = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lemon"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertiesChanged("Lemon");
+                PropertiesChanged("SpecialInstructions");
             }
         }
         /// <summary>

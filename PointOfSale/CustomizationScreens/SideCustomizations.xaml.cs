@@ -19,17 +19,10 @@ namespace PointOfSale.CustomizationScreens
     /// </summary>
     public partial class SideCustomizations : UserControl
     {
-        private Order order;
 
-        public SideCustomizations(object o)
+        public SideCustomizations()
         {
-            order = (Order)o;
             InitializeComponent();
-        }
-
-        private void IsChecked()
-        {
-
         }
     }
 }

@@ -13,22 +13,6 @@
             <CheckBox IsChecked="{Binding Ice}" BorderThickness="1,1,1,1" Margin="50,10,0,10" FontSize="20" FontFamily="Rockwell" RenderTransformOrigin="0.5,0.5" Padding="4,-5,0,0" Content="Ice" />
             <CheckBox IsChecked="{Binding Lemon}" BorderThickness="1,1,1,1" FontSize="20" FontFamily="Rockwell" RenderTransformOrigin="0.5,0.5" Content="Lemon" Margin="50,10,0,10" Padding="4,-5,0,0" />
         </StackPanel>
-        
-        <Border Margin="10" BorderThickness="5" Padding="8">
-            <Border.Resources>
-                <ObjectDataProvider MethodName="GetValues"
-                        ObjectType="{x:Type sys:Enum}"
-                        x:Key="ComparisonConverter">
-                </ObjectDataProvider>
-            </Border.Resources>
-            
-            <StackPanel Width="300">
-                <TextBlock>Size:</TextBlock>
-                <RadioButton IsChecked="{Binding Source=Size, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static local:Size.Small}}" />
-                <RadioButton IsChecked="{Binding Source=Size, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static local:Size.Medium}}" />
-                <RadioButton IsChecked="{Binding Source=Size, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static local:Size.Large}}" />
-            </StackPanel>
-        </Border>
     </StackPanel>
 
     

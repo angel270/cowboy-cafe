@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
-    public abstract class Entree : IOrderItem
+    public abstract class Entree : IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Handles the property changes
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// Gets the price of the side
         /// </summary>
@@ -20,5 +25,10 @@ namespace CowboyCafe.Data
         /// Gets or sets the special instructions for the entree
         /// </summary>
         public virtual List<string> SpecialInstructions { get; set; }
+
+        protected void PropertiesChanged(string property)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
+        }
     }
 }

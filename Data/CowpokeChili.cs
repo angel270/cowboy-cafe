@@ -7,7 +7,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Cowpoke Chili entree
     /// </summary>
-    public class CowpokeChili : Entree, INotifyPropertyChanged
+    public class CowpokeChili : Entree
     {
         /// <summary>
         /// Handles the property changes
@@ -57,8 +57,8 @@ namespace CowboyCafe.Data
             set 
             { 
                 cheese = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertiesChanged("Cheese");
+                PropertiesChanged("SpecialInstructions");
 
             }
         }
@@ -73,8 +73,8 @@ namespace CowboyCafe.Data
             set 
             { 
                 sourCream = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SourCream"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertiesChanged("SourCream");
+                PropertiesChanged("SpecialInstructions");
             }
         }
 
@@ -88,8 +88,8 @@ namespace CowboyCafe.Data
             set 
             {
                 greenOnions = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("GreenOnions"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertiesChanged("GreenOnions");
+                PropertiesChanged("SpecialInstructions");
             }
         }
 
@@ -103,8 +103,8 @@ namespace CowboyCafe.Data
             set 
             {
                 tortillaStrips = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TortillaStrips"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertiesChanged("TortillaStrips");
+                PropertiesChanged("SpecialInstructions");
             }
         }
         public override string ToString()
