@@ -8,10 +8,6 @@ namespace CowboyCafe.Data
     public class ChiliCheeseFries : Side
     {
         /// <summary>
-        /// Handles the property changes
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-        /// <summary>
         /// Returns the price of the side based on size
         /// </summary>
         public override double Price
