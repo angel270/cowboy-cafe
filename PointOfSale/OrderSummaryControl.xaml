@@ -7,9 +7,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="460" d:DesignWidth="225" Height="470">
     
-    <StackPanel Height="470">
+    <StackPanel Height="470" Width="220">
         <TextBlock FontFamily="Rockwell" Background="#FFD17D17" FontSize="18" FontWeight="Heavy" FontStyle="Italic" Grid.Column="1" TextAlignment="Center" LineStackingStrategy="BlockLineHeight"  Text="{Binding Path=OrderNumber, StringFormat=Order {0}}" Height="25" Margin="5,5,5,0"></TextBlock>
-        <ListBox Margin="5,5,5,5"  Height="390" BorderBrush="Black" FontSize="11" ItemsSource="{Binding Path = Items}" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="ChangeExistingItem" ScrollViewer.CanContentScroll="False">
+        <ListBox Margin="5,5,5,5"  Height="350" BorderBrush="Black" FontSize="11" ItemsSource="{Binding Path = Items}" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="ChangeExistingItem" ScrollViewer.CanContentScroll="False">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -39,6 +39,14 @@
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Column="0" Background="White"  Height="30" VerticalAlignment="Top" FontFamily="Rockwell" FontWeight="Bold" FontSize="18" HorizontalAlignment="Stretch" TextAlignment="Justify" Margin="5,0,5,5" >Subtotal</TextBlock>
             <TextBlock Text="{Binding Path=Subtotal, StringFormat=c}" Grid.Column="1" Background="White" Margin="0,0,5,5" FontSize="17"/>
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="160"/>
+                <ColumnDefinition Width="65"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Background="White"  Height="30" VerticalAlignment="Top" FontFamily="Rockwell" FontWeight="Bold" FontSize="18" HorizontalAlignment="Stretch" TextAlignment="Justify" Margin="5,0,5,5" >Total</TextBlock>
+            <TextBlock Text="{Binding Path=Total, StringFormat=c}" Grid.Column="1" Background="White" Margin="0,0,5,5" FontSize="17"/>
         </Grid>
     </StackPanel>
 </UserControl>

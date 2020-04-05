@@ -11,6 +11,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
+using PointOfSale.TransactionScreens;
+using PointOfSale.ExtensionMethods;
+using CashRegister;
 
 namespace PointOfSale
 {
@@ -23,6 +26,7 @@ namespace PointOfSale
         {
             InitializeComponent();
             var data = new Order();
+            var drawer = new CashDrawer();
             this.DataContext = data;
         }
 
@@ -43,7 +47,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void CompleteOrder_Click(object sender, RoutedEventArgs e)
         {
-            this.DataContext = new Order();
+            Container.Child = new TransactionControl();
         }
 
         private void ItemSelection_Click(object sender, RoutedEventArgs e)

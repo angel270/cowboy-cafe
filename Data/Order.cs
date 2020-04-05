@@ -33,6 +33,13 @@ namespace CowboyCafe.Data
                 return total;
             }
         }
+
+        public double Total { get { return Subtotal * 1.16; } }
+
+        public double Paid = 0.0;
+
+        public double Change => Total - Paid;
+
         /// <summary>
         /// Updates the order number for current order
         /// </summary>
@@ -52,6 +59,7 @@ namespace CowboyCafe.Data
                 pcitem.PropertyChanged += OnItemChanged;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Total"));
         }
         /// <summary>
         /// Removes an item from an order
@@ -64,12 +72,16 @@ namespace CowboyCafe.Data
                 pcitem.PropertyChanged -= OnItemChanged;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Total"));
         }
         private void OnItemChanged(object sender, PropertyChangedEventArgs e)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             if (e.PropertyName == "Price")
+            {
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Total"));
+            }
         }
     }
 }
