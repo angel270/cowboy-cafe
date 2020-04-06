@@ -18,9 +18,7 @@ namespace PointOfSale.TransactionScreens
         /// </summary>
         private CashDrawer drawer = new CashDrawer();
 
-        public double Paid = 0.0;
-
-        public double Change = 0.0;
+        private double Paid;
 
         /// <summary>
         /// Current total in the drawer
@@ -42,7 +40,6 @@ namespace PointOfSale.TransactionScreens
                 else
                 { 
                     drawer.RemoveCoin(Coins.Penny, -quantity);
-                    Change += 0.01;
                 }
             InvokePropertyChanged("Pennies"); 
 
@@ -64,7 +61,6 @@ namespace PointOfSale.TransactionScreens
                 else
                 {
                     drawer.RemoveCoin(Coins.Nickel, -quantity);
-                    Change += 0.5;
                 }
             InvokePropertyChanged("Nickels");
 
@@ -86,7 +82,6 @@ namespace PointOfSale.TransactionScreens
                 else
                 {
                     drawer.RemoveCoin(Coins.Dime, -quantity);
-                    Change += 0.1;
                 }
                 InvokePropertyChanged("Dimes");
 
@@ -108,7 +103,6 @@ namespace PointOfSale.TransactionScreens
                 else
                 {
                     drawer.RemoveCoin(Coins.Quarter, -quantity);
-                    Change += 0.25;
                 }
                 InvokePropertyChanged("Quarters");
 
@@ -130,7 +124,6 @@ namespace PointOfSale.TransactionScreens
                 else
                 {
                     drawer.RemoveCoin(Coins.HalfDollar, -quantity);
-                    Change += 0.5;
                 }
 
                 InvokePropertyChanged("HalfDollars");
@@ -153,7 +146,6 @@ namespace PointOfSale.TransactionScreens
                 else
                 {
                     drawer.RemoveCoin(Coins.Dollar, -quantity);
-                    Change += 1;
                 }
                 InvokePropertyChanged("Dollars");
 
@@ -174,7 +166,6 @@ namespace PointOfSale.TransactionScreens
                 }
                 else {
                     drawer.RemoveBill(Bills.One, -quantity);
-                    Change += 1;
                 }
                 InvokePropertyChanged("Ones");
 
@@ -196,7 +187,6 @@ namespace PointOfSale.TransactionScreens
                 else
                 {
                     drawer.RemoveBill(Bills.Five, -quantity);
-                    Change += 5;
                 }
                 InvokePropertyChanged("Fives");
 
@@ -218,7 +208,6 @@ namespace PointOfSale.TransactionScreens
                 else
                 {
                     drawer.RemoveBill(Bills.Ten, -quantity);
-                    Change += 10;
                 }
                 InvokePropertyChanged("Tens");
 
@@ -240,7 +229,6 @@ namespace PointOfSale.TransactionScreens
                 else 
                 {
                     drawer.RemoveBill(Bills.Twenty, -quantity);
-                    Change += 20;
                 }
                 InvokePropertyChanged("Twenties");
 
@@ -262,7 +250,6 @@ namespace PointOfSale.TransactionScreens
                 else 
                 {
                     drawer.RemoveBill(Bills.Fifty, -quantity);
-                    Change += 50;
                 }
                 InvokePropertyChanged("Fifties");
 
@@ -284,7 +271,6 @@ namespace PointOfSale.TransactionScreens
                 else
                 {
                     drawer.RemoveBill(Bills.Hundred, -quantity);
-                    Change += 100;
                 }
                 InvokePropertyChanged("Hundreds");
 
@@ -296,31 +282,7 @@ namespace PointOfSale.TransactionScreens
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(denom));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TotalValue"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Paid"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Change"));
         }
 
-        /*private string CreateReceipt(Order data)
-        {
-            StringBuilder sb = new StringBuilder();
-
-            sb.Append("Order NO: " + data.OrderNumber + "\n");
-            sb.Append("Time: " + DateTime.Now.ToString() + "\n");
-
-            foreach (var i in data.Items)
-            {
-                sb.Append(i.ToString() + "\t\t");
-                sb.Append(i.Price + "\n" + "\t");
-                for (int x = 0; x < i.SpecialInstructions.Count; x++)
-                {
-                    sb.Append(i.SpecialInstructions[x].ToString() + "\n" + "\t");
-                }
-            }
-            sb.Append("\nSubtotal:\t\t" + data.Subtotal + "\n");
-            sb.Append("Tax:\t\t" + (data.Subtotal * 0.16) + "\n");
-            sb.Append("Total:\t\t" + data.Total + "\n");
-            sb.Append("Credit Card Transaction.");
-
-            return sb.ToString();
-        }*/
     }
 }

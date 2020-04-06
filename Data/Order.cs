@@ -36,10 +36,6 @@ namespace CowboyCafe.Data
 
         public double Total { get { return Subtotal * 1.16; } }
 
-        public double Paid = 0.0;
-
-        public double Change => Total - Paid;
-
         /// <summary>
         /// Updates the order number for current order
         /// </summary>

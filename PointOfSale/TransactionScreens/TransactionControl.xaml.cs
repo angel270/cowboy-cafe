@@ -21,8 +21,6 @@ namespace PointOfSale.TransactionScreens
     /// </summary>
     public partial class TransactionControl : UserControl
     {
-        private ReceiptPrinter printer = new ReceiptPrinter();
-
         public TransactionControl()
         {
             InitializeComponent();
@@ -30,7 +28,9 @@ namespace PointOfSale.TransactionScreens
 
         private void CardPayment(object sender, RoutedEventArgs e)
         {
-            CCContainer.Child = new CardControl();
+            var oc = this.FindAncestor<OrderControl>();
+            if (DataContext is Order data)
+                CCContainer.Child = new CardControl(data, oc);
         }
 
         private void CashPayment(object sender, RoutedEventArgs e)

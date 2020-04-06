@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:PointOfSale.TransactionScreens"
              xmlns:PointOfSale="clr-namespace:PointOfSale" x:Class="PointOfSale.TransactionScreens.TransactionControl"
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="760">
+             d:DesignHeight="400" d:DesignWidth="760" DataContext="{Binding DataContext, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type PointOfSale:OrderControl}}}">
+    
     <UserControl.Resources>
         <Style TargetType="{x:Type Button}">
             <Setter Property="Height" Value="50"/>
@@ -21,45 +22,30 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="37*"/>
+            <ColumnDefinition Width="115*"/>
         </Grid.ColumnDefinitions>
 
-        <Button Background="#FF5064C8" Click="CardPayment">
+        <Button Background="#FF5064C8" Click="CardPayment" Width="150" Margin="-10,0,0,0">
             <Grid Margin="-30,0,0,0" VerticalAlignment="Center">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <TextBlock FontSize="50" Margin="13,0,10,0" Foreground="#FF010164" FontFamily="Rockwell" FontWeight="Bold" Text="O" VerticalAlignment="Center"/>
-                <TextBlock Grid.Column="1" FontSize="30" VerticalAlignment="Center" Margin="10,0,10,0" Foreground="#FF010164" FontFamily="Rockwell" FontWeight="Bold"><Run Text="Card"/></TextBlock>
+                <TextBlock Grid.Column="1" FontSize="25" Foreground="#FF010164" FontFamily="Rockwell" FontWeight="Bold">O Card</TextBlock>
             </Grid>
         </Button>
 
-        <Button Grid.Row="1" Background="#FF64C850" Click="CashPayment">
+        <Button Grid.Row="1" Background="#FF64C850" Click="CashPayment" Width="150" Margin="-10,0,0,0">
             <Grid Margin="-30,0,0,0" VerticalAlignment="Center">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <TextBlock FontSize="50" Margin="13,0,10,0" Foreground="#FF016401" FontFamily="Rockwell" FontWeight="Bold" Text="O" VerticalAlignment="Center"/>
-                <TextBlock Grid.Column="1" FontSize="30" VerticalAlignment="Center" Margin="10,0,10,0" Foreground="#FF016401" FontFamily="Rockwell" FontWeight="Bold"><Run Text="Cash"/></TextBlock>
+                <TextBlock Grid.Column="1" FontSize="25" Foreground="#FF016401" FontFamily="Rockwell" FontWeight="Bold" Margin="5,0,0,0">O Cash</TextBlock>
             </Grid>
         </Button>
 
-        <Button Grid.Row="2" Background="#FFC86450" Click="CancelTransaction">
+        <Button Grid.Row="2" Background="#FFC86450" Click="CancelTransaction" Width="150" Margin="-10,0,0,0">
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <TextBlock FontSize="50" Margin="12,0,10,0" Foreground="#FF640101" FontFamily="Rockwell" FontWeight="Bold" VerticalAlignment="Center"><Run Text="X"/></TextBlock>
-                <TextBlock Grid.Column="1" FontSize="30" Margin="10,0,10,0" Foreground="#FF640101" FontFamily="Rockwell" FontWeight="Bold" VerticalAlignment="Center"><Run Text="Cancel"/></TextBlock>
+                <TextBlock Grid.Column="1" FontSize="25" Foreground="#FF640101" FontFamily="Rockwell" FontWeight="Bold" >X Cancel</TextBlock>
             </Grid>
         </Button>
 
-        <Border x:Name="CCContainer" Grid.Column="1" Grid.RowSpan="3" HorizontalAlignment="Center" >
-            <local:CardControl HorizontalAlignment="Center" VerticalAlignment="Center" DataContext="{Binding DataContext, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type PointOfSale:OrderControl}}}" />
+        <Border x:Name="CCContainer" Grid.Column="1" Grid.RowSpan="3" HorizontalAlignment="Center" BorderBrush="Black" >
+            <TextBlock FontFamily="Rockwell" FontSize="35" FontWeight="Bold" VerticalAlignment="Center">Please make a selection.</TextBlock>
         </Border>
     </Grid>
 </UserControl>

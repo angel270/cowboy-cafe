@@ -21,34 +21,32 @@ namespace PointOfSale.TransactionScreens
     /// </summary>
     public partial class CardControl : UserControl
     {
-        public CardControl()
+        private OrderControl oc;
+
+        public CardControl(Order data, OrderControl control)
         {
+            this.DataContext = data;
             InitializeComponent();
-            if(DataContext is Order data) 
+
+            var reader = new CardTerminal();
+            var printer = new ReceiptPrinter();
+            var result = reader.ProcessTransaction(data.Total);
+
+            switch (result)
             {
-                var oc = this.FindAncestor<OrderControl>();
-                var reader = new CardTerminal();
-                var result = reader.ProcessTransaction(data.Total);
-                var printer = new ReceiptPrinter();
-                switch (result)
-                {
-                    case ResultCode.Success:
-                        CardDisplay.Text = "Success.";
-                        printer.Print(CreateReceipt(data));
-                        oc.SwapScreen(new OrderControl());
-                        oc.DataContext = new Order();
-                        break;
-                    case ResultCode.CancelledCard:
-                    case ResultCode.InsufficentFunds:
-                    case ResultCode.ReadError:
-                    case ResultCode.UnknownErrror:
-                        CardDisplay.Text = result.ToString();
-                        var control = this.FindAncestor<TransactionControl>();
-                        control.SwapScreen(new TransactionControl());
-                        break;
-                }
+                case ResultCode.Success:
+                    CardDisplay.Text = "Success.";
+                    printer.Print(CreateReceipt(data));
+                    oc.SwapScreen();
+                    break;
+
+                case ResultCode.CancelledCard:
+                case ResultCode.InsufficentFunds:
+                case ResultCode.ReadError:
+                case ResultCode.UnknownErrror:
+                    CardDisplay.Text = result.ToString();
+                    break;   
             }
-            
         }
 
         private string CreateReceipt(Order data)
@@ -57,21 +55,26 @@ namespace PointOfSale.TransactionScreens
 
             sb.Append("Order NO: " + data.OrderNumber + "\n");
             sb.Append("Time: " + DateTime.Now.ToString() + "\n");
+            sb.Append("***********************************************************\n");
 
-            foreach(var i in data.Items)
+            foreach (var i in data.Items)
             {
-                sb.Append(i.ToString() + "\t\t");
-                sb.Append(i.Price + "\n" + "\t");
-                for(int x = 0; x < i.SpecialInstructions.Count; x++)
+                sb.Append(i.ToString() + "");
+                sb.Append(i.Price + "\n");
+                if(i.SpecialInstructions != null)
                 {
-                    sb.Append(i.SpecialInstructions[x].ToString() + "\n" + "\t");
+                    for (int x = 0; x < i.SpecialInstructions.Count; x++)
+                    {
+                        sb.Append("\t" + i.SpecialInstructions[x].ToString() + "\n");
+                    }
                 }
             }
-            sb.Append("\nSubtotal:\t\t" + data.Subtotal + "\n");
-            sb.Append("Tax:\t\t" + (data.Subtotal * 0.16) + "\n");
-            sb.Append("Total:\t\t" + data.Total + "\n");
-            sb.Append("Credit Card Transaction.");
-
+            sb.Append("**********************************************************\n");
+            sb.Append("Subtotal:\t\t" + data.Subtotal + "\n");
+            sb.Append("Tax:\t\t\t" + (data.Subtotal * 0.16) + "\n");
+            sb.Append("Total:\t\t\t" + data.Total + "\n");
+            sb.Append("Credit Card Transaction.\n");
+            sb.Append("***********************************************************\n");
             return sb.ToString();
         }
     }

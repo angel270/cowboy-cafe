@@ -5,9 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale.TransactionScreens"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <StackPanel>
+             d:DesignHeight="400" d:DesignWidth="575">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
         <TextBlock FontFamily="Rockwell" Background="#FFD17D17" VerticalAlignment="Stretch" FontSize="35" FontWeight="Heavy">Card</TextBlock>
-        <TextBlock x:Name="CardDisplay"></TextBlock>
-    </StackPanel>
+        <TextBlock x:Name="CardDisplay" Width="575" FontSize="25" Grid.Row="1" Foreground="#FF584444" HorizontalAlignment="Stretch" Padding="100,100,100,100" VerticalAlignment="Stretch"/>
+    </Grid>
 </UserControl>

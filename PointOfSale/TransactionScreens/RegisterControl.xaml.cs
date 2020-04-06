@@ -29,12 +29,9 @@ namespace PointOfSale.TransactionScreens
                 var oc = this.FindAncestor<OrderControl>();
                 var register = new RegisterMV();
                 var printer = new ReceiptPrinter();
-                if (data.Paid <= 0)
-                {
                     oc.SwapScreen(new OrderControl());
                     oc.DataContext = new Order();
                     printer.Print(CreateReceipt(data));
-                }
             }
         }
 
@@ -44,7 +41,7 @@ namespace PointOfSale.TransactionScreens
 
             sb.Append("Order NO: " + data.OrderNumber + "\n");
             sb.Append("Time: " + DateTime.Now.ToString() + "\n");
-            sb.Append("************************************************************");
+            sb.Append("***********************************************************\n");
             foreach (var i in data.Items)
             {
                 sb.Append(i.ToString() + "\t\t");
@@ -54,13 +51,14 @@ namespace PointOfSale.TransactionScreens
                     sb.Append(i.SpecialInstructions[x].ToString() + "\n" + "\t");
                 }
             }
-            sb.Append("************************************************************");
+            sb.Append("***********************************************************\n");
             sb.Append("\nSubtotal:\t\t$" + data.Subtotal + "\n");
-            sb.Append("Tax:\t\t$" + (data.Subtotal * 0.16) + "\n");
-            sb.Append("Total:\t\t$" + data.Total + "\n");
-            sb.Append("************************************************************");
-            sb.Append("Paid:\t\t$" + data.Paid + "\n");
-            sb.Append("Change:\t\t$" + data.Change);
+            sb.Append("Tax:\t\t\t$" + (data.Subtotal * 0.16) + "\n");
+            sb.Append("Total:\t\t\t$" + data.Total + "\n");
+            sb.Append("***********************************************************\n");
+            //            sb.Append("Paid:\t\t$" + data.Paid + "\n");
+            //            sb.Append("Change:\t\t$" + data.Change);
+            sb.Append("***********************************************************\n");
 
             return sb.ToString();
         }
