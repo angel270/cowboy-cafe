@@ -1,63 +1,46 @@
-﻿<UserControl x:Class="PointOfSale.TransactionScreens.RegisterControl"
+﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale.TransactionScreens"
+             xmlns:PointOfSale="clr-namespace:PointOfSale" x:Class="PointOfSale.TransactionScreens.RegisterControl"
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="575">
+             d:DesignHeight="400" d:DesignWidth="225" DataContext="{Binding Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type PointOfSale:OrderControl}}}">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-
         <WrapPanel>
-            <TextBlock>Paid</TextBlock>
-            <TextBlock Text="{Binding Path=Paid}"></TextBlock>
+            <TextBlock><Run Text="Paid"/></TextBlock>
+            <TextBlock Text="{Binding Paid}"/>
         </WrapPanel>
 
-        <WrapPanel Grid.Column="1">
-            <TextBlock>Change</TextBlock>
-            <TextBlock Text="{Binding Path=Change}"></TextBlock>
+        <WrapPanel Grid.Row="1">
+            <TextBlock><Run Text="Change"/></TextBlock>
+            <TextBlock Text="{Binding Change}"/>
         </WrapPanel>
 
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Center">
-            <WrapPanel Margin="10,0,10,0">
-                <local:BillControl Denomination="One" Quantity="{Binding Path=Ones}" Margin="20,0,20,0"/>
-                <local:BillControl Denomination="Five" Quantity="{Binding Path=Fives}" Margin="20,0,20,0"/>
-            </WrapPanel>
-            <WrapPanel Margin="10,0,10,0">
-                <local:BillControl Denomination="Ten" Quantity="{Binding Path=Tens}" Margin="20,0,20,0"/>
-                <local:BillControl Denomination="Twenty" Quantity="{Binding Path=Twenties}" Margin="20,0,20,0"/>
-            </WrapPanel>
-            <WrapPanel Margin="10,0,10,0">
-                <local:BillControl Denomination="Fifty" Quantity="{Binding Path=Fifties}" Margin="20,0,20,0"/>
-                <local:BillControl Denomination="Hundred" Quantity="{Binding Path=Hundreds}" Margin="20,0,20,0"/>
-            </WrapPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <local:BillControl Denomination="One" Quantity="{Binding Ones}" Margin="5,0,5,0"/>
+            <local:BillControl Denomination="Five" Quantity="{Binding Fives}" Margin="5,0,5,0"/>
+            <local:BillControl Denomination="Ten" Quantity="{Binding Tens}" Margin="5,0,5,0"/>
+            <local:BillControl Denomination="Twenty" Quantity="{Binding Twenties}" Margin="5,0,5,0"/>
+            <local:BillControl Denomination="Fifty" Quantity="{Binding Fifties}" Margin="5,0,5,0"/>
+            <local:BillControl Denomination="Hundred" Quantity="{Binding Hundreds}" Margin="5,0,5,0"/>
         </StackPanel>
-        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Margin="20,0,20,0" HorizontalAlignment="Center" VerticalAlignment="Stretch">
-            <WrapPanel Margin="20,0,20,0">
-                <local:CoinControl Denomination="Penny" Quantity="{Binding Path=Pennies}" Margin="20,0,20,0"/>
-                <local:CoinControl Denomination="Nickel" Quantity="{Binding Path=Nickels}" Margin="20,0,20,0"/>
-                
-            </WrapPanel>
 
-            <WrapPanel Margin="20,0,20,0">
-                <local:CoinControl Denomination="Dime" Quantity="{Binding Path=Dimes}" Margin="20,0,20,0"/>
-                <local:CoinControl Denomination="Quarter" Quantity="{Binding Path=Quarters}" Margin="41,0,20,0"/>
-            </WrapPanel>
-            
-            <WrapPanel Margin="20,0,20,0">
-                <local:CoinControl Denomination="HalfDollar" Quantity="{Binding Path=HalfDollar}" Margin="20,0,20,0"/>
-                <local:CoinControl Denomination="Dollar" Quantity="{Binding Path=Dollar}" Margin="10,0,20,0"/>
-            </WrapPanel>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
+            <local:CoinControl Denomination="Penny" Quantity="{Binding Pennies}" Margin="5,0,5,0"/>
+            <local:CoinControl Denomination="Nickel" Quantity="{Binding Nickels}" Margin="5,0,5,0"/>
+            <local:CoinControl Denomination="Dime" Quantity="{Binding Dimes}" Margin="5,0,5,0"/>
+            <local:CoinControl Denomination="Quarter" Quantity="{Binding Quarters}" Margin="5,0,5,0"/>
+            <local:CoinControl Denomination="HalfDollar" Quantity="{Binding HalfDollar}" Margin="5,0,5,0"/>
+            <local:CoinControl Denomination="Dollar" Quantity="{Binding Dollar}" Margin="5,0,5,0"/>
         </StackPanel>
     </Grid>
 </UserControl>

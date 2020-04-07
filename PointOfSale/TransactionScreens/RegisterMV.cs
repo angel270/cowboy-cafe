@@ -18,7 +18,11 @@ namespace PointOfSale.TransactionScreens
         /// </summary>
         private CashDrawer drawer = new CashDrawer();
 
-        private double Paid;
+        private double paid = 0.0;
+        /// <summary>
+        /// Current amount paid
+        /// </summary>
+        public double Paid => paid;
 
         /// <summary>
         /// Current total in the drawer
@@ -35,7 +39,7 @@ namespace PointOfSale.TransactionScreens
                 if (quantity > 0)
                 {
                     drawer.AddCoin(Coins.Penny, quantity);
-                    Paid += 0.01;
+                    paid += 0.01;
                 }
                 else
                 { 
@@ -56,7 +60,7 @@ namespace PointOfSale.TransactionScreens
                 if (quantity > 0)
                 {
                     drawer.AddCoin(Coins.Nickel, quantity);
-                    Paid += 0.05;
+                    paid += 0.05;
                 }
                 else
                 {
@@ -77,7 +81,7 @@ namespace PointOfSale.TransactionScreens
                 if (quantity > 0)
                 {
                     drawer.AddCoin(Coins.Dime, quantity);
-                    Paid += 0.1;
+                    paid += 0.1;
                 }
                 else
                 {
@@ -98,7 +102,7 @@ namespace PointOfSale.TransactionScreens
                 if (quantity > 0)
                 {
                     drawer.AddCoin(Coins.Quarter, quantity);
-                    Paid += 0.25;
+                    paid += 0.25;
                 }
                 else
                 {
@@ -119,7 +123,7 @@ namespace PointOfSale.TransactionScreens
                 if (quantity > 0)
                 {
                     drawer.AddCoin(Coins.HalfDollar, quantity);
-                    Paid += 0.5;
+                    paid += 0.5;
                 }
                 else
                 {
@@ -141,7 +145,7 @@ namespace PointOfSale.TransactionScreens
                 if (quantity > 0)
                 {
                     drawer.AddCoin(Coins.Dollar, quantity);
-                    Paid += 1;
+                    paid += 1;
                 }
                 else
                 {
@@ -162,7 +166,7 @@ namespace PointOfSale.TransactionScreens
                 if (quantity > 0) 
                 {
                     drawer.AddBill(Bills.One, quantity);
-                    Paid += 1;
+                    paid += 1;
                 }
                 else {
                     drawer.RemoveBill(Bills.One, -quantity);
@@ -182,7 +186,7 @@ namespace PointOfSale.TransactionScreens
                 if (quantity > 0)
                 {
                     drawer.AddBill(Bills.Five, quantity);
-                    Paid += 5;
+                    paid += 5;
                 }
                 else
                 {
@@ -203,7 +207,7 @@ namespace PointOfSale.TransactionScreens
                 if (quantity > 0) 
                 {
                     drawer.AddBill(Bills.Ten, quantity);
-                    Paid += 10;
+                    paid += 10;
                 }
                 else
                 {
@@ -224,7 +228,7 @@ namespace PointOfSale.TransactionScreens
                 if (quantity > 0)
                 {
                     drawer.AddBill(Bills.Twenty, quantity);
-                    Paid += 20;
+                    paid += 20;
                 }
                 else 
                 {
@@ -245,7 +249,7 @@ namespace PointOfSale.TransactionScreens
                 if (quantity > 0) 
                 {
                     drawer.AddBill(Bills.Fifty, quantity);
-                    Paid += 50;
+                    paid += 50;
                 }
                 else 
                 {
@@ -266,7 +270,7 @@ namespace PointOfSale.TransactionScreens
                 if (quantity > 0)
                 {
                     drawer.AddBill(Bills.Hundred, quantity);
-                    Paid += 100;
+                    paid += 100;
                 }
                 else
                 {
@@ -282,6 +286,7 @@ namespace PointOfSale.TransactionScreens
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(denom));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TotalValue"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Paid"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Change"));
         }
 
     }

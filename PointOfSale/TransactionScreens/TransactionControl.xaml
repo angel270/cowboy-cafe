@@ -22,8 +22,8 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="37*"/>
-            <ColumnDefinition Width="115*"/>
+            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="110*"/>
         </Grid.ColumnDefinitions>
 
         <Button Background="#FF5064C8" Click="CardPayment" Width="150" Margin="-10,0,0,0">
@@ -44,8 +44,6 @@
             </Grid>
         </Button>
 
-        <Border x:Name="CCContainer" Grid.Column="1" Grid.RowSpan="3" HorizontalAlignment="Center" BorderBrush="Black" >
-            <TextBlock FontFamily="Rockwell" FontSize="35" FontWeight="Bold" VerticalAlignment="Center">Please make a selection.</TextBlock>
-        </Border>
+        <TextBlock x:Name="Display" Grid.Column="1" Text=""></TextBlock>
     </Grid>
 </UserControl>

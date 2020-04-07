@@ -24,43 +24,54 @@ namespace PointOfSale.TransactionScreens
         public RegisterControl()
         {
             InitializeComponent();
-            if(DataContext is Order data)
+            if(DataContext is RegisterMV data)
             {
-                var oc = this.FindAncestor<OrderControl>();
-                var register = new RegisterMV();
                 var printer = new ReceiptPrinter();
-                    oc.SwapScreen(new OrderControl());
-                    oc.DataContext = new Order();
-                    printer.Print(CreateReceipt(data));
+                var oc = this.FindAncestor<OrderControl>();
+                if(oc.DataContext is Order order)
+                {
+                    if (data.Paid >= order.Total)
+                        printer.Print(CreateCashReceipt(order, data.drawer));
+                } 
             }
         }
 
-        private string CreateReceipt(Order data)
+        /// <summary>
+        /// Creates a receipt
+        /// </summary>
+        /// <param name="data">The order being billed.</param>
+        /// <param name="register">The amount being handled</param>
+        /// <returns>A receipt.</returns>
+        private string CreateCashReceipt(Order data, CashDrawer register)
         {
             StringBuilder sb = new StringBuilder();
 
+            sb.Append("***********************************************************\n");
             sb.Append("Order NO: " + data.OrderNumber + "\n");
             sb.Append("Time: " + DateTime.Now.ToString() + "\n");
-            sb.Append("***********************************************************\n");
+            sb.Append("****************************\n");
+
             foreach (var i in data.Items)
             {
                 sb.Append(i.ToString() + "\t\t");
-                sb.Append(i.Price + "\n" + "\t");
-                for (int x = 0; x < i.SpecialInstructions.Count; x++)
+                sb.Append(i.Price + "\n");
+                if (i.SpecialInstructions != null)
                 {
-                    sb.Append(i.SpecialInstructions[x].ToString() + "\n" + "\t");
+                    for (int x = 0; x < i.SpecialInstructions.Count; x++)
+                    {
+                        sb.Append("\t" + i.SpecialInstructions[x].ToString() + "\n");
+                    }
                 }
             }
-            sb.Append("***********************************************************\n");
-            sb.Append("\nSubtotal:\t\t$" + data.Subtotal + "\n");
-            sb.Append("Tax:\t\t\t$" + (data.Subtotal * 0.16) + "\n");
-            sb.Append("Total:\t\t\t$" + data.Total + "\n");
-            sb.Append("***********************************************************\n");
-            //            sb.Append("Paid:\t\t$" + data.Paid + "\n");
-            //            sb.Append("Change:\t\t$" + data.Change);
-            sb.Append("***********************************************************\n");
-
+            sb.Append("****************************\n");
+            sb.Append("Subtotal:\t\t" + data.Subtotal + "\n");
+            sb.Append("Tax:\t\t\t" + (data.Subtotal * 0.16) + "\n");
+            sb.Append("Total:\t\t\t" + data.Total + "\n");
+            sb.Append("Paid:\t\t\t" + register.Paid);
+            sb.Append("Change:\t\t\t" + register.Change);
+            sb.Append("****************************\n");
             return sb.ToString();
         }
+
     }
 }

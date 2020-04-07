@@ -22,11 +22,12 @@ namespace PointOfSale
     /// </summary>
     public partial class OrderControl : UserControl
     {
+        public static RegisterMV register = new RegisterMV();
+
         public OrderControl()
         {
             InitializeComponent();
             var data = new Order();
-            var drawer = new CashDrawer();
             this.DataContext = data;
         }
 

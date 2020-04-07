@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CashRegister;
+using PointOfSale.ExtensionMethods;
 
 namespace PointOfSale.TransactionScreens
 {
@@ -61,7 +62,7 @@ namespace PointOfSale.TransactionScreens
 
         public void OnIncreaseClicked(object sender, RoutedEventArgs e)
         {
-            Quantity++;
+            Quantity++; 
         }
 
         public void OnDecreaseClicked(Object sender, RoutedEventArgs e)
