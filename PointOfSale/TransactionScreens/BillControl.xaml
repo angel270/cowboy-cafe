@@ -5,8 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale.TransactionScreens"
              mc:Ignorable="d" 
-             d:DesignHeight="75" d:DesignWidth="100
-">
+             d:DesignHeight="60" d:DesignWidth="100">
     <Grid>
         <Border BorderBrush="Gray" BorderThickness="1" Padding="5">
             <Grid>
@@ -20,7 +19,7 @@
                     <RowDefinition Height="3*"/>
                 </Grid.RowDefinitions>
 
-                <Border BorderThickness="1" BorderBrush="DarkGoldenrod" CornerRadius="5" Background="Gold" Grid.Column="0" Width="75" Panel.ZIndex="1" Grid.ColumnSpan="3" HorizontalAlignment="Stretch">
+                <Border BorderThickness="1" BorderBrush="DarkGoldenrod" CornerRadius="5" Background="Gold" Grid.Column="0" Width="75" Panel.ZIndex="1" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" Height="20">
                     <TextBlock VerticalAlignment="Center" TextAlignment="Center" Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:BillControl}}, Path=Denomination}" Foreground="Black" FontSize="20"/>
                 </Border>
 

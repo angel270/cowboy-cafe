@@ -25,22 +25,22 @@
             <TextBlock Text="{Binding Change}"/>
         </WrapPanel>
 
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+        <WrapPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top">
             <local:BillControl Denomination="One" Quantity="{Binding Ones}" Margin="5,0,5,0"/>
             <local:BillControl Denomination="Five" Quantity="{Binding Fives}" Margin="5,0,5,0"/>
             <local:BillControl Denomination="Ten" Quantity="{Binding Tens}" Margin="5,0,5,0"/>
             <local:BillControl Denomination="Twenty" Quantity="{Binding Twenties}" Margin="5,0,5,0"/>
             <local:BillControl Denomination="Fifty" Quantity="{Binding Fifties}" Margin="5,0,5,0"/>
             <local:BillControl Denomination="Hundred" Quantity="{Binding Hundreds}" Margin="5,0,5,0"/>
-        </StackPanel>
+        </WrapPanel>
 
-        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
+        <WrapPanel Grid.Row="3" HorizontalAlignment="Center" >
             <local:CoinControl Denomination="Penny" Quantity="{Binding Pennies}" Margin="5,0,5,0"/>
             <local:CoinControl Denomination="Nickel" Quantity="{Binding Nickels}" Margin="5,0,5,0"/>
             <local:CoinControl Denomination="Dime" Quantity="{Binding Dimes}" Margin="5,0,5,0"/>
             <local:CoinControl Denomination="Quarter" Quantity="{Binding Quarters}" Margin="5,0,5,0"/>
             <local:CoinControl Denomination="HalfDollar" Quantity="{Binding HalfDollar}" Margin="5,0,5,0"/>
             <local:CoinControl Denomination="Dollar" Quantity="{Binding Dollar}" Margin="5,0,5,0"/>
-        </StackPanel>
+        </WrapPanel>
     </Grid>
 </UserControl>
