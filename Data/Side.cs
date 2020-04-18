@@ -43,6 +43,8 @@ namespace CowboyCafe.Data
         /// </summary>
         public abstract uint Calories { get; }
 
+        public abstract string GetName { get; }
+
         /// <summary>
         /// If there are any special instructions for a drink
         /// </summary>

@@ -47,7 +47,10 @@ namespace CowboyCafe.Data
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
-        } 
+        }
+
+        public abstract string GetName { get; }
+
         /// <summary>
         /// If there are any special instructions for a drink
         /// </summary>

@@ -48,6 +48,12 @@ namespace CowboyCafe.Data
                 }
             }
         }
+
+        public override string GetName
+        {
+            get { return "Chili Cheese Fries"; }
+        }
+
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

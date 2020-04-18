@@ -49,6 +49,11 @@ namespace CowboyCafe.Data
             }
         }
 
+        public override string GetName
+        {
+            get { return "Pan de Campo"; }
+        }
+
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

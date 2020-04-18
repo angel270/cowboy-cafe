@@ -59,6 +59,11 @@ namespace CowboyCafe.Data
             }
         }
 
+        public override string GetName
+        {
+            get { return "Water"; }
+        }
+
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

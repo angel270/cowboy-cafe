@@ -111,6 +111,11 @@ namespace CowboyCafe.Data
             }
         }
 
+        public override string GetName
+        {
+            get { return "Texas Tea"; }
+        }
+
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
