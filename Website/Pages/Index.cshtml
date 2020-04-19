@@ -12,68 +12,90 @@
 	take it easy with us.
 </h1>
 
-the name of the item, its price, and its calories.
-If an item comes in multiple sizes, you will need
-to list the price and calories for each size.
-
 <h2>Entrees</h2>
-@foreach (Entree e in Menu.Entrees)
-{
-	<div class="menu-item">
-		<div>@e.ToString()</div>
-		<div>@e.Price</div>
-		<div>@e.Calories</div>
-	</div>
-}
+
+<table class="table table-hover">
+	<tbody>
+		@foreach (Entree e in Menu.Entrees)
+		{
+			<tr>
+				<td>@e.ToString()</td>
+				<td>
+					<div>
+						<div>@string.Format("{0:C}", e.Price)</div>
+						<div>@e.Calories Cal</div>
+					</div>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
 
 <h2>Sides</h2>
-@foreach (Side s in Menu.Sides)
-{
-	<div class="menu-item">
-		<div>@s.GetName</div>
 
-		<div class="item-size">
-			@(s.Size = Size.Small)
-			<div>@s.Price</div>
-			<div>@s.Calories</div>
-		</div>
-
-		<div class="item-size">
-			@(s.Size = Size.Medium)
-			<div>@s.Price</div>
-			<div>@s.Calories</div>
-		</div>
-
-		<div class="item-size">
-			@(s.Size = Size.Large)
-			<div>@s.Price</div>
-			<div>@s.Calories</div>
-		</div>
-	</div>
-}
+<table class="table table-hover">
+	<tbody>
+		@foreach (Side s in Menu.Sides)
+		{
+			<tr>
+				<td>@s.GetName</td>
+				<td>
+					<div class="item-size">
+						@(s.Size = Size.Small)
+						<div>@string.Format("{0:C}", s.Price)</div>
+						<div>@s.Calories Cal</div>
+					</div>
+				</td>
+				<td>
+					<div class="item-size">
+						@(s.Size = Size.Medium)
+						<div>@string.Format("{0:C}", s.Price)</div>
+						<div>@s.Calories Cal</div>
+					</div>
+				</td>
+				<td>
+					<div class="item-size">
+						@(s.Size = Size.Large)
+						<div>@string.Format("{0:C}", s.Price)</div>
+						<div>@s.Calories Cal</div>
+					</div>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
 
 <h2>Drinks</h2>
-@foreach (Drink d in Menu.Drinks)
-{
-	<div class="menu-item">
-		<div>@d.GetName</div>
+<table class="table table-hover">
+	<tbody>
 
-		<div class="item-size">
-			@(d.Size = Size.Small)
-			<div>@d.Price</div>
-			<div>@d.Calories</div>
-		</div>
-
-		<div class="item-size">
-			@(d.Size = Size.Medium)
-			<div>@d.Price</div>
-			<div>@d.Calories</div>
-		</div>
-
-		<div class="item-size">
-			@(d.Size = Size.Large)
-			<div>@d.Price</div>
-			<div>@d.Calories</div>
-		</div>
-	</div>
-}
+		@foreach (Drink d in Menu.Drinks)
+		{
+			<tr>
+				<td>@d.GetName</td>
+				<td>
+					<div class="item-size">
+						@(d.Size = Size.Small)
+						<div>@string.Format("{0:C}", d.Price)</div>
+						<div>@d.Calories Cal</div>
+					</div>
+				</td>
+				<td>
+					<div class="item-size">
+						@(d.Size = Size.Medium)
+						<div>@string.Format("{0:C}", d.Price)</div>
+						<div>@d.Calories Cal</div>
+					</div>
+				</td>
+				<td>
+					<div class="item-size">
+						@(d.Size = Size.Large)
+						<div>@string.Format("{0:C}", d.Price)</div>
+						<div>@d.Calories Cal</div>
+					</div>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
