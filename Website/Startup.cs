@@ -51,6 +51,7 @@ namespace Website
             {
                 endpoints.MapRazorPages();
             });
+            app.UseStaticFiles();
         }
     }
 }
