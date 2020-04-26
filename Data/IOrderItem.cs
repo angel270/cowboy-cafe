@@ -8,5 +8,7 @@ namespace CowboyCafe.Data
     {
         public List<string> SpecialInstructions { get; }
         public double Price { get; }
+        public uint Calories { get; }
+        public string Category { get; }
     }
 }

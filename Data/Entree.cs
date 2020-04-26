@@ -22,6 +22,11 @@ namespace CowboyCafe.Data
         public abstract uint Calories { get; }
 
         /// <summary>
+        /// The category of the item
+        /// </summary>
+        public string Category => "Entree";
+
+        /// <summary>
         /// Gets or sets the special instructions for the entree
         /// </summary>
         public virtual List<string> SpecialInstructions { get; set; }

@@ -35,6 +35,10 @@ namespace CowboyCafe.Data
         /// The calories in a drink
         /// </summary>
         public abstract uint Calories { get; }
+        /// <summary>
+        /// The category of the item
+        /// </summary>
+        public string Category => "Drink";
         private bool ice = true;
         /// <summary>
         /// If there is ice in a drink
