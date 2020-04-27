@@ -19,7 +19,6 @@ namespace Website.Pages
         /// <summary>
         /// The current search terms 
         /// </summary>
-        [BindProperty]
         public string SearchTerms { get; set; } = "";
 
         /// <summary>
@@ -30,37 +29,34 @@ namespace Website.Pages
         /// <summary>
         /// The minimum Cal Rating
         /// </summary>  
-        [BindProperty]
         public uint? CalMin { get; set; }
 
         /// <summary>
         /// The maximum Cal Rating
         /// </summary>
-        [BindProperty]
         public uint? CalMax { get; set; }
 
         /// <summary>
         /// The minimum Rotten Tomatoes Rating
         /// </summary>
-        [BindProperty]
         public double? PriceMin { get; set; }
 
         /// <summary>
         /// The maximum Rotten Tomatoes Rating
         /// </summary>
-        [BindProperty]
         public double? PriceMax { get; set; }
 
-        public void OnGet()
+
+        public void OnGet(uint? CalMin, uint? CalMax, double? PriceMin, double? PriceMax)
         {
+            SearchTerms = Request.Query["SearchTerms"];
+            Category = Request.Query["Category"];
+
             Items = Menu.CompleteMenu;
-        }
-        public void OnPost()
-        {
             Items = Menu.Search(SearchTerms);
             Items = Menu.FilterByCategory(Items, Category);
             Items = Menu.FilterByCalories(Items, CalMin, CalMax);
-
+            Items = Menu.FilterByPrice(Items, PriceMin, PriceMax);
         }
     }
 }

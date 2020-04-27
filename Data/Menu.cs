@@ -107,7 +107,7 @@ namespace CowboyCafe.Data
             // If there isn't any search terms, return all items
             if (terms == null) return CompleteMenu;
 
-            // return each movie in the database containing the terms substring
+            // return each IOrderItem in the database containing the terms substring
             foreach (IOrderItem item in CompleteMenu)
             {
                 if (item.ToString().Contains(terms, StringComparison.InvariantCultureIgnoreCase))
@@ -150,7 +150,7 @@ namespace CowboyCafe.Data
         /// <param name="items">The collection of items to filter</param>
         /// <param name="min">The minimum range value</param>
         /// <param name="max">The maximum range value</param>
-        /// <returns>The filtered movie collection</returns>
+        /// <returns>The filtered IOrderItem collection</returns>
         public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> items, double? min, double? max)
         {
             if (min == null && max == null) return items;
@@ -186,48 +186,49 @@ namespace CowboyCafe.Data
             return results;
 
         }
+
         /// Filters the provided collection of items 
-        /// to those with Rotten Tomatoes ratings falling within 
+        /// to those with prices  falling within 
         /// the specified range
         /// </summary>
         /// <param name="items">The collection of items to filter</param>
         /// <param name="min">The minimum range value</param>
         /// <param name="max">The maximum range value</param>
-        /// <returns>The filtered movie collection</returns>
-        /*public static IEnumerable<Movie> FilterByRottenTomatoesRating(IEnumerable<Movie> items, double? min, double? max)
+        /// <returns>The filtered IOrderItem collection</returns>
+        public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> items, double? min, double? max)
         {
             if (min == null && max == null) return items;
 
-            var results = new List<Movie>();
+            var results = new List<IOrderItem>();
 
             // only a maximum specified
             if (min == null)
             {
-                foreach (Movie movie in items)
+                foreach (IOrderItem i in items)
                 {
-                    if (movie.RottenTomatoesRating <= max) results.Add(movie);
+                    if (i.Price <= max) results.Add(i);
                 }
                 return results;
             }
             // only a minimum specified 
             if (max == null)
             {
-                foreach (Movie movie in items)
+                foreach (IOrderItem i in items)
                 {
-                    if (movie.RottenTomatoesRating >= min) results.Add(movie);
+                    if (i.Price >= min) results.Add(i);
                 }
                 return results;
             }
             // Both minimum and maximum specified
-            foreach (Movie movie in items)
+            foreach (IOrderItem i in items)
             {
-                if (movie.RottenTomatoesRating >= min && movie.RottenTomatoesRating <= max)
+                if (i.Price >= min && i.Price <= max)
                 {
-                    results.Add(movie);
+                    results.Add(i);
                 }
             }
             return results;
 
-        }*/
+        }
     }
 }
