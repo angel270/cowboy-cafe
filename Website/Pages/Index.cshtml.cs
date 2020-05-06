@@ -19,44 +19,71 @@ namespace Website.Pages
         /// <summary>
         /// The current search terms 
         /// </summary>
+        [BindProperty(SupportsGet = true)]
         public string SearchTerms { get; set; } = "";
 
         /// <summary>
         /// The filtered categories
         /// </summary>
+        [BindProperty(SupportsGet = true)]
         public string[] Category { get; set; }
 
         /// <summary>
         /// The minimum Cal Rating
         /// </summary>  
+        [BindProperty(SupportsGet = true)]
         public uint? CalMin { get; set; }
 
         /// <summary>
         /// The maximum Cal Rating
         /// </summary>
+        [BindProperty(SupportsGet = true)]
         public uint? CalMax { get; set; }
 
         /// <summary>
         /// The minimum Rotten Tomatoes Rating
         /// </summary>
+        [BindProperty(SupportsGet = true)]
         public double? PriceMin { get; set; }
 
         /// <summary>
         /// The maximum Rotten Tomatoes Rating
         /// </summary>
+        [BindProperty(SupportsGet = true)]
         public double? PriceMax { get; set; }
 
 
-        public void OnGet(uint? CalMin, uint? CalMax, double? PriceMin, double? PriceMax)
+        public void OnGet()
         {
-            SearchTerms = Request.Query["SearchTerms"];
-            Category = Request.Query["Category"];
-
             Items = Menu.CompleteMenu;
-            Items = Menu.Search(SearchTerms);
-            Items = Menu.FilterByCategory(Items, Category);
-            Items = Menu.FilterByCalories(Items, CalMin, CalMax);
-            Items = Menu.FilterByPrice(Items, PriceMin, PriceMax);
+
+            if (SearchTerms != null)
+                Items = Menu.CompleteMenu.Where(movie => movie.ToString() != null &&
+                movie.ToString().Contains(SearchTerms, StringComparison.CurrentCultureIgnoreCase));
+
+            if (Category != null && Category.Length != 0)
+                Items = Items.Where(movie => movie.Category != null &&
+                Category.Contains(movie.Category));
+
+            if (CalMin != null || CalMax != null)
+            {
+                if (CalMin == null)
+                    Items = Items.Where(movie => movie.Calories <= CalMax);
+                else if (CalMax == null)
+                    Items = Items.Where(movie => movie.Calories >= CalMin);
+                else
+                    Items = Items.Where(movie => movie.Calories >= CalMin && movie.Calories <= CalMax);
+            }
+
+            if (PriceMin != null || PriceMax != null)
+            {
+                if (PriceMin == null)
+                    Items = Items.Where(movie => movie.Price <= PriceMax);
+                else if (PriceMax == null)
+                    Items = Items.Where(movie => movie.Price >= PriceMin);
+                else
+                    Items = Items.Where(movie => movie.Price >= PriceMin && movie.Price <= PriceMax);
+            }
         }
     }
 }

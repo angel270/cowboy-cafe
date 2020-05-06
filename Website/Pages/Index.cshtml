@@ -51,97 +51,63 @@
 	<!--Displays the search and filter results-->
 	<div id="results">
 		<h2>Results</h2>
-		<table class="table table-hover">
+		<div class="flex-columns">
 			@foreach (IOrderItem i in Model.Items)
 			{
 				@if (i is Entree)
 				{
+					<h1> Entrees </h1>
 					var e = (Entree)i;
 
 					<!--Displays the Entree Items available-->
-					<tbody>
-						<tr>
-							<td>@e.ToString()</td>
-							<td>
-								<div>
-									<div>@string.Format("{0:C}", e.Price)</div>
-									<div>@e.Calories Cal</div>
-								</div>
-							</td>
-						</tr>
-					</tbody>
+					<div>
+						@e.ToString()
+
+						<div>@string.Format("{0:C}", e.Price)</div>
+						<div>@e.Calories Cal</div>
+
+					</div>
 				}
 				else if (i is Side)
 				{
+					<h1> Sides </h1>
 					var s = (Side)i;
 
 					<!--Displays the Side Items available-->
-					<tbody>
-						<tr>
-							<td>@s.GetName</td>
-							<!--Default side/drink details-->
-							<td>
-								<div class="item-size">
-									@(s.Size = Size.Small)
-									<div>@string.Format("{0:C}", s.Price)</div>
-									<div>@s.Calories Cal</div>
-								</div>
-							</td>
-							<!--Medium side/drink details-->
-							<td>
-								<div class="item-size">
-									@(s.Size = Size.Medium)
-									<div>@string.Format("{0:C}", s.Price)</div>
-									<div>@s.Calories Cal</div>
-								</div>
-							</td>
-							<!--Large side/drink details-->
-							<td>
-								<div class="item-size">
-									@(s.Size = Size.Large)
-									<div>@string.Format("{0:C}", s.Price)</div>
-									<div>@s.Calories Cal</div>
-								</div>
-							</td>
-						</tr>
-					</tbody>
+					<div>
+						@s.GetName
+
+						<!--Side details-->
+						<div>@string.Format("{0:C}", s.Price)</div>
+						<div>@s.Calories Cal</div>
+					</div>
 				}
 				else
 				{
+					<h1> Drinks </h1>
 					var d = (Drink)i;
 
 					<!--Displays the Drink Items available-->
-					<tbody>
-						<tr>
-							<td>@d.GetName</td>
-							<!--Default drink details-->
-							<td>
-								<div class="item-size">
-									@(d.Size = Size.Small)
-									<div>@string.Format("{0:C}", d.Price)</div>
-									<div>@d.Calories Cal</div>
-								</div>
-							</td>
-							<!--Medium side details-->
-							<td>
-								<div class="item-size">
-									@(d.Size = Size.Medium)
-									<div>@string.Format("{0:C}", d.Price)</div>
-									<div>@d.Calories Cal</div>
-								</div>
-							</td>
-							<!--Large side details-->
-							<td>
-								<div class="item-size">
-									@(d.Size = Size.Large)
-									<div>@string.Format("{0:C}", d.Price)</div>
-									<div>@d.Calories Cal</div>
-								</div>
-							</td>
-						</tr>
-					</tbody>
+					<div>
+						@d.GetName
+
+						@if (d is JerkedSoda)
+						{
+							<p class="soda-flavors">
+								CreamSoda,
+								OrangeSoda,
+								Sarsparilla,
+								BirchBeer,
+								RootBeer
+							</p>
+						}
+
+						<!--Drink details-->
+						<div>@string.Format("{0:C}", d.Price)</div>
+						<div>@d.Calories Cal</div>
+					</div>
 				}
 			}
-		</table>
+		</div>
 	</div>
 </form>

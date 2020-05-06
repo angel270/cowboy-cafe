@@ -47,3 +47,15 @@ form#cafe-database {
 #results {
     grid-row-start: 0;
 }
+
+.float-columns > div {
+    float: left;
+    width: 33%;
+}
+
+@media (max-width: 490px) {
+    .float-columns > div {
+        float: none;
+        width: 100%;
+    }
+}
