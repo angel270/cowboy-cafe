@@ -48,14 +48,17 @@ form#cafe-database {
     grid-row-start: 0;
 }
 
-.float-columns > div {
-    float: left;
-    width: 33%;
+.flex-columns {
+    display: flex;
+    flex-direction: row;
+}
+
+.menu-item{
+    width= 33%;
 }
 
 @media (max-width: 490px) {
-    .float-columns > div {
-        float: none;
-        width: 100%;
+    .flex-columns {
+        flex-direction: column;
     }
 }

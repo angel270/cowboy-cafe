@@ -52,62 +52,75 @@
 	<div id="results">
 		<h2>Results</h2>
 		<div class="flex-columns">
-			@foreach (IOrderItem i in Model.Items)
-			{
-				@if (i is Entree)
+			<div class="menu-item">
+				<h2> Entrees </h2>
+				@foreach (IOrderItem i in Model.Items)
 				{
-					<h1> Entrees </h1>
-					var e = (Entree)i;
+					@if (i is Entree)
+					{
+						var e = (Entree)i;
 
-					<!--Displays the Entree Items available-->
-					<div>
-						@e.ToString()
+						<!--Displays the Entree Items available-->
+						<div>
+							@e.ToString()
 
-						<div>@string.Format("{0:C}", e.Price)</div>
-						<div>@e.Calories Cal</div>
+							<div>@string.Format("{0:C}", e.Price)</div>
+							<div>@e.Calories Cal</div>
 
-					</div>
+						</div>
+					}
 				}
-				else if (i is Side)
+			</div>
+
+			<div class="menu-item">
+				<h2> Sides </h2>
+				@foreach (IOrderItem i in Model.Items)
 				{
-					<h1> Sides </h1>
-					var s = (Side)i;
+					if (i is Side)
+					{
+						var s = (Side)i;
 
-					<!--Displays the Side Items available-->
-					<div>
-						@s.GetName
+						<!--Displays the Side Items available-->
+						<div>
+							<p>@s.GetName</p>
 
-						<!--Side details-->
-						<div>@string.Format("{0:C}", s.Price)</div>
-						<div>@s.Calories Cal</div>
-					</div>
+							<!--Side details-->
+							<div>@string.Format("{0:C}", s.Price)</div>
+							<div>@s.Calories Cal</div>
+						</div>
+					}
 				}
-				else
+			</div>
+
+			<div class="menu-item">
+				<h2> Drinks </h2>
+				@foreach (IOrderItem i in Model.Items)
 				{
-					<h1> Drinks </h1>
-					var d = (Drink)i;
+					if (i is Drink)
+					{
+						var d = (Drink)i;
 
-					<!--Displays the Drink Items available-->
-					<div>
-						@d.GetName
+						<!--Displays the Drink Items available-->
+						<div>
+							<p>@d.GetName</p>
 
-						@if (d is JerkedSoda)
-						{
-							<p class="soda-flavors">
-								CreamSoda,
-								OrangeSoda,
-								Sarsparilla,
-								BirchBeer,
-								RootBeer
-							</p>
-						}
-
-						<!--Drink details-->
-						<div>@string.Format("{0:C}", d.Price)</div>
-						<div>@d.Calories Cal</div>
-					</div>
-				}
-			}
+							@if (d is JerkedSoda)
+							{
+								<p class="soda-flavors">
+									CreamSoda,
+									OrangeSoda,
+									Sarsparilla,
+									BirchBeer,
+									RootBeer
+								</p>
+							}
+							<!--Drink details-->
+							<div>@string.Format("{0:C}", d.Price)</div>
+							<div>@d.Calories Cal</div>
+						</div>
+					}
+				 }
+			</div>
 		</div>
 	</div>
 </form>
